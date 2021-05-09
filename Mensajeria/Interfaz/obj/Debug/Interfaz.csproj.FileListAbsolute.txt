@@ -351,3 +351,5 @@ C:\Users\alejandro\Source\Repos\SistemaMensajeria\Mensajeria\Interfaz\obj\Debug\
 C:\Users\alejandro\Source\Repos\SistemaMensajeria\Mensajeria\Interfaz\obj\Debug\Interfaz.csproj.CopyComplete
 C:\Users\alejandro\Source\Repos\SistemaMensajeria\Mensajeria\Interfaz\obj\Debug\Interfaz.exe
 C:\Users\alejandro\Source\Repos\SistemaMensajeria\Mensajeria\Interfaz\obj\Debug\Interfaz.pdb
+C:\Users\alejandro\Source\Repos\SistemaMensajeria\Mensajeria\Interfaz\obj\Debug\Interfaz.csprojAssemblyReference.cache
+C:\Users\alejandro\Source\Repos\SistemaMensajeria\Mensajeria\Interfaz\obj\Debug\Interfaz.FrmIngresosGastos.resources

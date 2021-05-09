@@ -2,9 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\Mensajeria",
-    "\\Mensajeria\\BaseDatos",
-    "\\Mensajeria\\packages\\EntityFramework.5.0.0"
+    "\\Mensajeria\\BaseDatos"
   ],
-  "SelectedNode": "\\Mensajeria\\BaseDatos",
+  "SelectedNode": "\\Mensajeria\\Mensajeria.sln",
   "PreviewInSolutionExplorer": false
 }

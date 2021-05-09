@@ -117,6 +117,7 @@ namespace Interfaz
 
         private void BtnIngresosGastos_Click(object sender, EventArgs e)
         {
+            AbrirFormularios(new FrmIngresosGastos(), "Ingresos y gastos");
             OcultarSubMenu();
         }
 
