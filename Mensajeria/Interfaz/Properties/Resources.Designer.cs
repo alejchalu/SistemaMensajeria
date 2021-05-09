@@ -73,16 +73,6 @@ namespace Interfaz.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap cerrar_sesion1 {
-            get {
-                object obj = ResourceManager.GetObject("cerrar-sesion1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap close {
             get {
                 object obj = ResourceManager.GetObject("close", resourceCulture);
@@ -103,39 +93,9 @@ namespace Interfaz.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap minimizar {
-            get {
-                object obj = ResourceManager.GetObject("minimizar", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap minimizar__1_ {
-            get {
-                object obj = ResourceManager.GetObject("minimizar (1)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap minimizar__1___1_ {
             get {
                 object obj = ResourceManager.GetObject("minimizar (1) (1)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap minimizar__2_ {
-            get {
-                object obj = ResourceManager.GetObject("minimizar (2)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -156,36 +116,6 @@ namespace Interfaz.Properties {
         internal static System.Drawing.Bitmap pin_code1 {
             get {
                 object obj = ResourceManager.GetObject("pin-code1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap redimensionar {
-            get {
-                object obj = ResourceManager.GetObject("redimensionar", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap redimensionar__1_ {
-            get {
-                object obj = ResourceManager.GetObject("redimensionar (1)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap redimensionar__2_ {
-            get {
-                object obj = ResourceManager.GetObject("redimensionar (2)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
