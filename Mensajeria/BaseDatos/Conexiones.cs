@@ -312,6 +312,23 @@ namespace BaseDatos
         #endregion
 
         #region Metodos Ingresos_Gastos
+        public DataTable ListarIngresosGastos()
+        {
+            SqlCommand cmd = new SqlCommand("Ing_P_ListarIngresos_Gastos", Conexion);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            Conexion.Open();
+
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.SelectCommand = cmd;
+
+            DataTable table = new DataTable();
+            table.Locale = System.Globalization.CultureInfo.InvariantCulture;
+            adapter.Fill(table);
+
+            Conexion.Close();
+            return table;
+        }
         public void InsertarIngresos_Gastos(DateTime Fecha_Transaccion, double Monto, string Descripcion,
             string Tipo, DateTime Fecha_Registro, string Usuario_Registro)
 

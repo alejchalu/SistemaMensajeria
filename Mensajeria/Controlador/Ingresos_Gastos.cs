@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using BaseDatos;
 
 namespace Controlador
@@ -34,6 +35,10 @@ namespace Controlador
         #endregion
 
         #region Metodos
+        public DataTable Listar()
+        {
+            return C.ListarIngresosGastos();
+        }
         public void Insertar()
         {
             C.InsertarIngresos_Gastos(_Fecha_Transaccion, _Monto, _Descripcion, _Tipo, _Fecha_Registro, _Usuario_Registro);

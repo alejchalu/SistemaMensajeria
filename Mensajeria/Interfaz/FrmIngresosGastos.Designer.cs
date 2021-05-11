@@ -65,6 +65,7 @@
             // 
             this.GvIngresosGastos.GridControl = this.GcIngresosGastos;
             this.GvIngresosGastos.Name = "GvIngresosGastos";
+            this.GvIngresosGastos.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.GvIngresosGastos_RowClick);
             // 
             // label1
             // 
@@ -117,10 +118,12 @@
             this.DeFecha.EditValue = null;
             this.DeFecha.Location = new System.Drawing.Point(375, 264);
             this.DeFecha.Name = "DeFecha";
+            this.DeFecha.Properties.BeepOnError = false;
             this.DeFecha.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.DeFecha.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.DeFecha.Properties.MaskSettings.Set("mask", "d");
             this.DeFecha.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.DeFecha.Size = new System.Drawing.Size(100, 20);
             this.DeFecha.TabIndex = 6;
@@ -146,6 +149,11 @@
             this.CbTipo.Name = "CbTipo";
             this.CbTipo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CbTipo.Properties.Items.AddRange(new object[] {
+            "Ingreso",
+            "Gasto"});
+            this.CbTipo.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.CbTipo.Properties.UseReadOnlyAppearance = false;
             this.CbTipo.Size = new System.Drawing.Size(100, 20);
             this.CbTipo.TabIndex = 9;
             // 
@@ -166,6 +174,7 @@
             this.BtnAgregar.TabIndex = 11;
             this.BtnAgregar.Text = "Agregar";
             this.BtnAgregar.UseVisualStyleBackColor = true;
+            this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
             // BtnActualizar
             // 
@@ -176,6 +185,7 @@
             this.BtnActualizar.TabIndex = 12;
             this.BtnActualizar.Text = "Actualizar";
             this.BtnActualizar.UseVisualStyleBackColor = true;
+            this.BtnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
             // 
             // BtnEliminar
             // 
@@ -186,6 +196,7 @@
             this.BtnEliminar.TabIndex = 13;
             this.BtnEliminar.Text = "Eliminar";
             this.BtnEliminar.UseVisualStyleBackColor = true;
+            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // FrmIngresosGastos
             // 
@@ -209,6 +220,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmIngresosGastos";
             this.Text = "FrmIngresosGastos";
+            this.Load += new System.EventHandler(this.FrmIngresosGastos_Load);
+            this.Click += new System.EventHandler(this.FrmIngresosGastos_Click);
             ((System.ComponentModel.ISupportInitialize)(this.GcIngresosGastos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GvIngresosGastos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DeFecha.Properties.CalendarTimeProperties)).EndInit();
