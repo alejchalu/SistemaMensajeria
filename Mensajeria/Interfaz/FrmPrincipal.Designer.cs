@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.PaMenuPrincipal = new DevExpress.Utils.Layout.TablePanel();
+            this.BtnPermisosPerfiles = new System.Windows.Forms.Button();
+            this.BtnPerfiles = new System.Windows.Forms.Button();
+            this.BtnClientesRutas = new System.Windows.Forms.Button();
+            this.BtnRutas = new System.Windows.Forms.Button();
+            this.BtnMensajeros = new System.Windows.Forms.Button();
             this.BtnBoletas = new System.Windows.Forms.Button();
             this.BtnCerrarSesion = new System.Windows.Forms.Button();
             this.LblUsuario = new System.Windows.Forms.Label();
@@ -41,28 +46,34 @@
             this.BtnClientes = new System.Windows.Forms.Button();
             this.BtnMantenimientos = new System.Windows.Forms.Button();
             this.BtnUsuarios = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.XtPFormularios = new DevExpress.XtraTab.XtraTabControl();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
-            this.BtnMaximizar = new System.Windows.Forms.PictureBox();
+            this.PnFormularios = new System.Windows.Forms.Panel();
             this.BtnMinimizar = new System.Windows.Forms.PictureBox();
+            this.BtnMaximizar = new System.Windows.Forms.PictureBox();
+            this.XtPFormularios = new DevExpress.XtraTab.XtraTabControl();
+            this.PbImagenPrincipal = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.PaMenuPrincipal)).BeginInit();
             this.PaMenuPrincipal.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.XtPFormularios)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BtnMaximizar)).BeginInit();
+            this.PnFormularios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BtnMinimizar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnMaximizar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.XtPFormularios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbImagenPrincipal)).BeginInit();
             this.SuspendLayout();
             // 
             // PaMenuPrincipal
             // 
+            this.PaMenuPrincipal.AllowTouchScroll = true;
             this.PaMenuPrincipal.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.PaMenuPrincipal.Appearance.Options.UseBackColor = true;
             this.PaMenuPrincipal.AutoScroll = true;
+            this.PaMenuPrincipal.AutoScrollMargin = new System.Drawing.Size(0, 10);
             this.PaMenuPrincipal.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] {
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 55F)});
+            this.PaMenuPrincipal.Controls.Add(this.BtnPermisosPerfiles);
+            this.PaMenuPrincipal.Controls.Add(this.BtnPerfiles);
+            this.PaMenuPrincipal.Controls.Add(this.BtnClientesRutas);
+            this.PaMenuPrincipal.Controls.Add(this.BtnRutas);
+            this.PaMenuPrincipal.Controls.Add(this.BtnMensajeros);
             this.PaMenuPrincipal.Controls.Add(this.BtnBoletas);
             this.PaMenuPrincipal.Controls.Add(this.BtnCerrarSesion);
             this.PaMenuPrincipal.Controls.Add(this.LblUsuario);
@@ -76,6 +87,7 @@
             this.PaMenuPrincipal.Controls.Add(this.BtnMantenimientos);
             this.PaMenuPrincipal.Controls.Add(this.BtnUsuarios);
             this.PaMenuPrincipal.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PaMenuPrincipal.FireScrollEventOnMouseWheel = true;
             this.PaMenuPrincipal.Location = new System.Drawing.Point(0, 0);
             this.PaMenuPrincipal.Name = "PaMenuPrincipal";
             this.PaMenuPrincipal.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
@@ -87,12 +99,118 @@
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 45F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 35F, false),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 35F, false),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 35F, false),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 35F, false),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 35F, false),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 35F, false),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 35F, false),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 45F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 35F, false),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 35F, false),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 45F)});
-            this.PaMenuPrincipal.Size = new System.Drawing.Size(244, 663);
+            this.PaMenuPrincipal.Size = new System.Drawing.Size(254, 571);
             this.PaMenuPrincipal.TabIndex = 2;
+            // 
+            // BtnPermisosPerfiles
+            // 
+            this.BtnPermisosPerfiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.PaMenuPrincipal.SetColumn(this.BtnPermisosPerfiles, 0);
+            this.BtnPermisosPerfiles.FlatAppearance.BorderSize = 0;
+            this.BtnPermisosPerfiles.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(150)))), ((int)(((byte)(153)))));
+            this.BtnPermisosPerfiles.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(176)))), ((int)(((byte)(153)))));
+            this.BtnPermisosPerfiles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnPermisosPerfiles.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold);
+            this.BtnPermisosPerfiles.ForeColor = System.Drawing.Color.Gainsboro;
+            this.BtnPermisosPerfiles.Location = new System.Drawing.Point(3, 564);
+            this.BtnPermisosPerfiles.Name = "BtnPermisosPerfiles";
+            this.BtnPermisosPerfiles.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.PaMenuPrincipal.SetRow(this.BtnPermisosPerfiles, 12);
+            this.BtnPermisosPerfiles.Size = new System.Drawing.Size(231, 35);
+            this.BtnPermisosPerfiles.TabIndex = 4;
+            this.BtnPermisosPerfiles.Text = "Permisos de perfiles";
+            this.BtnPermisosPerfiles.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnPermisosPerfiles.UseVisualStyleBackColor = false;
+            // 
+            // BtnPerfiles
+            // 
+            this.BtnPerfiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.PaMenuPrincipal.SetColumn(this.BtnPerfiles, 0);
+            this.BtnPerfiles.FlatAppearance.BorderSize = 0;
+            this.BtnPerfiles.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(150)))), ((int)(((byte)(153)))));
+            this.BtnPerfiles.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(176)))), ((int)(((byte)(153)))));
+            this.BtnPerfiles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnPerfiles.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold);
+            this.BtnPerfiles.ForeColor = System.Drawing.Color.Gainsboro;
+            this.BtnPerfiles.Location = new System.Drawing.Point(3, 523);
+            this.BtnPerfiles.Name = "BtnPerfiles";
+            this.BtnPerfiles.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.PaMenuPrincipal.SetRow(this.BtnPerfiles, 11);
+            this.BtnPerfiles.Size = new System.Drawing.Size(231, 35);
+            this.BtnPerfiles.TabIndex = 4;
+            this.BtnPerfiles.Text = "Perfiles";
+            this.BtnPerfiles.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnPerfiles.UseVisualStyleBackColor = false;
+            // 
+            // BtnClientesRutas
+            // 
+            this.BtnClientesRutas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.PaMenuPrincipal.SetColumn(this.BtnClientesRutas, 0);
+            this.BtnClientesRutas.FlatAppearance.BorderSize = 0;
+            this.BtnClientesRutas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(150)))), ((int)(((byte)(153)))));
+            this.BtnClientesRutas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(176)))), ((int)(((byte)(153)))));
+            this.BtnClientesRutas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnClientesRutas.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold);
+            this.BtnClientesRutas.ForeColor = System.Drawing.Color.Gainsboro;
+            this.BtnClientesRutas.Location = new System.Drawing.Point(3, 482);
+            this.BtnClientesRutas.Name = "BtnClientesRutas";
+            this.BtnClientesRutas.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.PaMenuPrincipal.SetRow(this.BtnClientesRutas, 10);
+            this.BtnClientesRutas.Size = new System.Drawing.Size(231, 35);
+            this.BtnClientesRutas.TabIndex = 4;
+            this.BtnClientesRutas.Text = "Clientes de rutas";
+            this.BtnClientesRutas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnClientesRutas.UseVisualStyleBackColor = false;
+            // 
+            // BtnRutas
+            // 
+            this.BtnRutas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.PaMenuPrincipal.SetColumn(this.BtnRutas, 0);
+            this.BtnRutas.FlatAppearance.BorderSize = 0;
+            this.BtnRutas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(150)))), ((int)(((byte)(153)))));
+            this.BtnRutas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(176)))), ((int)(((byte)(153)))));
+            this.BtnRutas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnRutas.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold);
+            this.BtnRutas.ForeColor = System.Drawing.Color.Gainsboro;
+            this.BtnRutas.Location = new System.Drawing.Point(3, 441);
+            this.BtnRutas.Name = "BtnRutas";
+            this.BtnRutas.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.PaMenuPrincipal.SetRow(this.BtnRutas, 9);
+            this.BtnRutas.Size = new System.Drawing.Size(231, 35);
+            this.BtnRutas.TabIndex = 4;
+            this.BtnRutas.Text = "Rutas";
+            this.BtnRutas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnRutas.UseVisualStyleBackColor = false;
+            // 
+            // BtnMensajeros
+            // 
+            this.BtnMensajeros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.PaMenuPrincipal.SetColumn(this.BtnMensajeros, 0);
+            this.BtnMensajeros.FlatAppearance.BorderSize = 0;
+            this.BtnMensajeros.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(150)))), ((int)(((byte)(153)))));
+            this.BtnMensajeros.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(176)))), ((int)(((byte)(153)))));
+            this.BtnMensajeros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnMensajeros.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold);
+            this.BtnMensajeros.ForeColor = System.Drawing.Color.Gainsboro;
+            this.BtnMensajeros.Location = new System.Drawing.Point(3, 400);
+            this.BtnMensajeros.Name = "BtnMensajeros";
+            this.BtnMensajeros.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.PaMenuPrincipal.SetRow(this.BtnMensajeros, 8);
+            this.BtnMensajeros.Size = new System.Drawing.Size(231, 35);
+            this.BtnMensajeros.TabIndex = 4;
+            this.BtnMensajeros.Text = "Mensajeros";
+            this.BtnMensajeros.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnMensajeros.UseVisualStyleBackColor = false;
+            this.BtnMensajeros.Click += new System.EventHandler(this.BtnMensajeros_Click_1);
             // 
             // BtnBoletas
             // 
@@ -107,7 +225,7 @@
             this.BtnBoletas.Name = "BtnBoletas";
             this.BtnBoletas.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.PaMenuPrincipal.SetRow(this.BtnBoletas, 1);
-            this.BtnBoletas.Size = new System.Drawing.Size(238, 45);
+            this.BtnBoletas.Size = new System.Drawing.Size(231, 45);
             this.BtnBoletas.TabIndex = 7;
             this.BtnBoletas.Text = "Crear boletas";
             this.BtnBoletas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -126,11 +244,11 @@
             this.BtnCerrarSesion.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold);
             this.BtnCerrarSesion.ForeColor = System.Drawing.Color.Gainsboro;
             this.BtnCerrarSesion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCerrarSesion.Location = new System.Drawing.Point(3, 615);
+            this.BtnCerrarSesion.Location = new System.Drawing.Point(3, 738);
             this.BtnCerrarSesion.Name = "BtnCerrarSesion";
             this.BtnCerrarSesion.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.PaMenuPrincipal.SetRow(this.BtnCerrarSesion, 11);
-            this.BtnCerrarSesion.Size = new System.Drawing.Size(238, 45);
+            this.PaMenuPrincipal.SetRow(this.BtnCerrarSesion, 16);
+            this.BtnCerrarSesion.Size = new System.Drawing.Size(231, 45);
             this.BtnCerrarSesion.TabIndex = 6;
             this.BtnCerrarSesion.Text = "Cerrar Sesión";
             this.BtnCerrarSesion.UseVisualStyleBackColor = true;
@@ -144,7 +262,7 @@
             this.LblUsuario.Location = new System.Drawing.Point(3, 0);
             this.LblUsuario.Name = "LblUsuario";
             this.PaMenuPrincipal.SetRow(this.LblUsuario, 0);
-            this.LblUsuario.Size = new System.Drawing.Size(238, 80);
+            this.LblUsuario.Size = new System.Drawing.Size(231, 80);
             this.LblUsuario.TabIndex = 0;
             this.LblUsuario.Text = " Bienvenido\r\n ";
             // 
@@ -158,11 +276,11 @@
             this.BtnRptMensajeros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnRptMensajeros.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold);
             this.BtnRptMensajeros.ForeColor = System.Drawing.Color.Gainsboro;
-            this.BtnRptMensajeros.Location = new System.Drawing.Point(3, 492);
+            this.BtnRptMensajeros.Location = new System.Drawing.Point(3, 697);
             this.BtnRptMensajeros.Name = "BtnRptMensajeros";
             this.BtnRptMensajeros.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.PaMenuPrincipal.SetRow(this.BtnRptMensajeros, 10);
-            this.BtnRptMensajeros.Size = new System.Drawing.Size(238, 35);
+            this.PaMenuPrincipal.SetRow(this.BtnRptMensajeros, 15);
+            this.BtnRptMensajeros.Size = new System.Drawing.Size(231, 35);
             this.BtnRptMensajeros.TabIndex = 1;
             this.BtnRptMensajeros.Text = "Mensajeros";
             this.BtnRptMensajeros.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -182,7 +300,7 @@
             this.BtnProcesos.Name = "BtnProcesos";
             this.BtnProcesos.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.PaMenuPrincipal.SetRow(this.BtnProcesos, 2);
-            this.BtnProcesos.Size = new System.Drawing.Size(238, 45);
+            this.BtnProcesos.Size = new System.Drawing.Size(231, 45);
             this.BtnProcesos.TabIndex = 1;
             this.BtnProcesos.Text = "Procesos";
             this.BtnProcesos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -203,7 +321,7 @@
             this.BtnIngresosGastos.Name = "BtnIngresosGastos";
             this.BtnIngresosGastos.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.PaMenuPrincipal.SetRow(this.BtnIngresosGastos, 3);
-            this.BtnIngresosGastos.Size = new System.Drawing.Size(238, 35);
+            this.BtnIngresosGastos.Size = new System.Drawing.Size(231, 35);
             this.BtnIngresosGastos.TabIndex = 0;
             this.BtnIngresosGastos.Text = "Ingresos y gastos";
             this.BtnIngresosGastos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -220,11 +338,11 @@
             this.BtnRptClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnRptClientes.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold);
             this.BtnRptClientes.ForeColor = System.Drawing.Color.Gainsboro;
-            this.BtnRptClientes.Location = new System.Drawing.Point(3, 451);
+            this.BtnRptClientes.Location = new System.Drawing.Point(3, 656);
             this.BtnRptClientes.Name = "BtnRptClientes";
             this.BtnRptClientes.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.PaMenuPrincipal.SetRow(this.BtnRptClientes, 9);
-            this.BtnRptClientes.Size = new System.Drawing.Size(238, 35);
+            this.PaMenuPrincipal.SetRow(this.BtnRptClientes, 14);
+            this.BtnRptClientes.Size = new System.Drawing.Size(231, 35);
             this.BtnRptClientes.TabIndex = 0;
             this.BtnRptClientes.Text = "Clientes";
             this.BtnRptClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -245,7 +363,7 @@
             this.BtnDocumentosMensajeros.Name = "BtnDocumentosMensajeros";
             this.BtnDocumentosMensajeros.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.PaMenuPrincipal.SetRow(this.BtnDocumentosMensajeros, 4);
-            this.BtnDocumentosMensajeros.Size = new System.Drawing.Size(238, 35);
+            this.BtnDocumentosMensajeros.Size = new System.Drawing.Size(231, 35);
             this.BtnDocumentosMensajeros.TabIndex = 1;
             this.BtnDocumentosMensajeros.Text = "Documentos mensajeros";
             this.BtnDocumentosMensajeros.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -261,11 +379,11 @@
             this.BtnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnReportes.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold);
             this.BtnReportes.ForeColor = System.Drawing.Color.Gainsboro;
-            this.BtnReportes.Location = new System.Drawing.Point(3, 400);
+            this.BtnReportes.Location = new System.Drawing.Point(3, 605);
             this.BtnReportes.Name = "BtnReportes";
             this.BtnReportes.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.PaMenuPrincipal.SetRow(this.BtnReportes, 8);
-            this.BtnReportes.Size = new System.Drawing.Size(238, 45);
+            this.PaMenuPrincipal.SetRow(this.BtnReportes, 13);
+            this.BtnReportes.Size = new System.Drawing.Size(231, 45);
             this.BtnReportes.TabIndex = 4;
             this.BtnReportes.Text = "Reportes";
             this.BtnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -286,7 +404,7 @@
             this.BtnClientes.Name = "BtnClientes";
             this.BtnClientes.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.PaMenuPrincipal.SetRow(this.BtnClientes, 7);
-            this.BtnClientes.Size = new System.Drawing.Size(238, 35);
+            this.BtnClientes.Size = new System.Drawing.Size(231, 35);
             this.BtnClientes.TabIndex = 0;
             this.BtnClientes.Text = "Clientes";
             this.BtnClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -306,7 +424,7 @@
             this.BtnMantenimientos.Name = "BtnMantenimientos";
             this.BtnMantenimientos.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.PaMenuPrincipal.SetRow(this.BtnMantenimientos, 5);
-            this.BtnMantenimientos.Size = new System.Drawing.Size(238, 45);
+            this.BtnMantenimientos.Size = new System.Drawing.Size(231, 45);
             this.BtnMantenimientos.TabIndex = 3;
             this.BtnMantenimientos.Text = "Mantenimientos";
             this.BtnMantenimientos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -327,25 +445,47 @@
             this.BtnUsuarios.Name = "BtnUsuarios";
             this.BtnUsuarios.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.PaMenuPrincipal.SetRow(this.BtnUsuarios, 6);
-            this.BtnUsuarios.Size = new System.Drawing.Size(238, 35);
+            this.BtnUsuarios.Size = new System.Drawing.Size(231, 35);
             this.BtnUsuarios.TabIndex = 2;
             this.BtnUsuarios.Text = "Usuarios";
             this.BtnUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnUsuarios.UseVisualStyleBackColor = false;
             this.BtnUsuarios.Click += new System.EventHandler(this.BtnUsuarios_Click);
             // 
-            // panel1
+            // PnFormularios
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.panel1.Controls.Add(this.BtnMinimizar);
-            this.panel1.Controls.Add(this.BtnMaximizar);
-            this.panel1.Controls.Add(this.XtPFormularios);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(244, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(657, 663);
-            this.panel1.TabIndex = 3;
+            this.PnFormularios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.PnFormularios.Controls.Add(this.BtnMinimizar);
+            this.PnFormularios.Controls.Add(this.BtnMaximizar);
+            this.PnFormularios.Controls.Add(this.XtPFormularios);
+            this.PnFormularios.Controls.Add(this.PbImagenPrincipal);
+            this.PnFormularios.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PnFormularios.Location = new System.Drawing.Point(254, 0);
+            this.PnFormularios.Name = "PnFormularios";
+            this.PnFormularios.Size = new System.Drawing.Size(647, 571);
+            this.PnFormularios.TabIndex = 3;
+            // 
+            // BtnMinimizar
+            // 
+            this.BtnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnMinimizar.Image = global::Interfaz.Properties.Resources.minimizar__1___1_;
+            this.BtnMinimizar.Location = new System.Drawing.Point(606, 3);
+            this.BtnMinimizar.Name = "BtnMinimizar";
+            this.BtnMinimizar.Size = new System.Drawing.Size(16, 16);
+            this.BtnMinimizar.TabIndex = 3;
+            this.BtnMinimizar.TabStop = false;
+            this.BtnMinimizar.Click += new System.EventHandler(this.BtnMinimizar_Click);
+            // 
+            // BtnMaximizar
+            // 
+            this.BtnMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnMaximizar.Image = global::Interfaz.Properties.Resources.minimizar__2___1_;
+            this.BtnMaximizar.Location = new System.Drawing.Point(628, 3);
+            this.BtnMaximizar.Name = "BtnMaximizar";
+            this.BtnMaximizar.Size = new System.Drawing.Size(16, 16);
+            this.BtnMaximizar.TabIndex = 2;
+            this.BtnMaximizar.TabStop = false;
+            this.BtnMaximizar.Click += new System.EventHandler(this.BtnMaximizar_Click);
             // 
             // XtPFormularios
             // 
@@ -357,52 +497,24 @@
             this.XtPFormularios.Visible = false;
             this.XtPFormularios.CloseButtonClick += new System.EventHandler(this.XtPFormularios_CloseButtonClick);
             // 
-            // pictureBox1
+            // PbImagenPrincipal
             // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.Image = global::Interfaz.Properties.Resources.entrega;
-            this.pictureBox1.Location = new System.Drawing.Point(259, 226);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(216, 147);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // xtraTabPage1
-            // 
-            this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(298, 277);
-            this.xtraTabPage1.Text = "xtraTabPage1";
-            // 
-            // BtnMaximizar
-            // 
-            this.BtnMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnMaximizar.Image = global::Interfaz.Properties.Resources.minimizar__2___1_;
-            this.BtnMaximizar.Location = new System.Drawing.Point(638, 3);
-            this.BtnMaximizar.Name = "BtnMaximizar";
-            this.BtnMaximizar.Size = new System.Drawing.Size(16, 16);
-            this.BtnMaximizar.TabIndex = 2;
-            this.BtnMaximizar.TabStop = false;
-            this.BtnMaximizar.Click += new System.EventHandler(this.BtnMaximizar_Click);
-            // 
-            // BtnMinimizar
-            // 
-            this.BtnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnMinimizar.Image = global::Interfaz.Properties.Resources.minimizar__1___1_;
-            this.BtnMinimizar.Location = new System.Drawing.Point(616, 3);
-            this.BtnMinimizar.Name = "BtnMinimizar";
-            this.BtnMinimizar.Size = new System.Drawing.Size(16, 16);
-            this.BtnMinimizar.TabIndex = 3;
-            this.BtnMinimizar.TabStop = false;
-            this.BtnMinimizar.Click += new System.EventHandler(this.BtnMinimizar_Click);
+            this.PbImagenPrincipal.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PbImagenPrincipal.Image = global::Interfaz.Properties.Resources.entrega;
+            this.PbImagenPrincipal.Location = new System.Drawing.Point(254, 180);
+            this.PbImagenPrincipal.Name = "PbImagenPrincipal";
+            this.PbImagenPrincipal.Size = new System.Drawing.Size(216, 147);
+            this.PbImagenPrincipal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PbImagenPrincipal.TabIndex = 0;
+            this.PbImagenPrincipal.TabStop = false;
             // 
             // FrmPrincipal
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(901, 663);
+            this.ClientSize = new System.Drawing.Size(901, 571);
             this.ControlBox = false;
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.PnFormularios);
             this.Controls.Add(this.PaMenuPrincipal);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -414,11 +526,11 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)(this.PaMenuPrincipal)).EndInit();
             this.PaMenuPrincipal.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.XtPFormularios)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BtnMaximizar)).EndInit();
+            this.PnFormularios.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.BtnMinimizar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnMaximizar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.XtPFormularios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbImagenPrincipal)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -437,11 +549,15 @@
         private System.Windows.Forms.Button BtnMantenimientos;
         private System.Windows.Forms.Button BtnUsuarios;
         private System.Windows.Forms.Button BtnBoletas;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel PnFormularios;
+        private System.Windows.Forms.PictureBox PbImagenPrincipal;
         private DevExpress.XtraTab.XtraTabControl XtPFormularios;
-        private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
         private System.Windows.Forms.PictureBox BtnMinimizar;
         private System.Windows.Forms.PictureBox BtnMaximizar;
+        private System.Windows.Forms.Button BtnPermisosPerfiles;
+        private System.Windows.Forms.Button BtnPerfiles;
+        private System.Windows.Forms.Button BtnClientesRutas;
+        private System.Windows.Forms.Button BtnRutas;
+        private System.Windows.Forms.Button BtnMensajeros;
     }
 }

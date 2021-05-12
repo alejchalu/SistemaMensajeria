@@ -1,5 +1,6 @@
 ﻿using DevExpress.Utils.Layout;
 using System;
+using System.Collections;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -13,8 +14,8 @@ namespace Interfaz
         }
         #region Variables
         private FrmInicioSesion IS = new FrmInicioSesion();
-        private const int cGrip = 16;      
-        private const int cCaption = 32;  
+        private const int cGrip = 16;
+        private const int cCaption = 32;
         #endregion
 
         #region Metodos
@@ -48,31 +49,18 @@ namespace Interfaz
             }
             base.WndProc(ref m);
         }
-        private void OcultarSubMenu()
+        private void MostrarOcultarSubMenu(ArrayList Indices)
         {
-            if (PaMenuPrincipal.Rows[3].Visible == true)
-                PaMenuPrincipal.Rows[3].Visible = false;
-            if (PaMenuPrincipal.Rows[4].Visible == true)
-                PaMenuPrincipal.Rows[4].Visible = false;
-            if (PaMenuPrincipal.Rows[6].Visible == true)
-                PaMenuPrincipal.Rows[6].Visible = false;
-            if (PaMenuPrincipal.Rows[7].Visible == true)
-                PaMenuPrincipal.Rows[7].Visible = false;
-            if (PaMenuPrincipal.Rows[9].Visible == true)
-                PaMenuPrincipal.Rows[9].Visible = false;
-            if (PaMenuPrincipal.Rows[10].Visible == true)
-                PaMenuPrincipal.Rows[10].Visible = false;
-        }
-
-        private void MostrarSubMenu(TablePanelRow SubMenu)
-        {
-            if (SubMenu.Visible == false)
+            foreach (int i in Indices)
             {
-                SubMenu.Visible = true;
-            }
-            else
-            {
-                SubMenu.Visible = false;
+                if (PaMenuPrincipal.Rows[i].Visible == false)
+                {
+                    PaMenuPrincipal.Rows[i].Visible = true;
+                }
+                else if (PaMenuPrincipal.Rows[i].Visible == true)
+                {
+                    PaMenuPrincipal.Rows[i].Visible = false;
+                }
             }
         }
         private void AbrirFormularios(Form FormularioMostrar, string Nombre)
@@ -111,67 +99,66 @@ namespace Interfaz
         #region Eventos
         private void BtnProcesos_Click(object sender, EventArgs e)
         {
-            MostrarSubMenu(PaMenuPrincipal.Rows[3]);
-            MostrarSubMenu(PaMenuPrincipal.Rows[4]);
-        }
+            ArrayList SubMenus = new ArrayList();
+            SubMenus.Add(3);
+            SubMenus.Add(4);
 
+            MostrarOcultarSubMenu(SubMenus);
+        }
         private void BtnIngresosGastos_Click(object sender, EventArgs e)
         {
             AbrirFormularios(new FrmIngresosGastos(), "Ingresos y gastos");
-            OcultarSubMenu();
         }
-
         private void BtnDocumentosMensajeros_Click(object sender, EventArgs e)
         {
-            OcultarSubMenu();
-        }
 
+        }
         private void BtnMantenimientos_Click(object sender, EventArgs e)
         {
-            MostrarSubMenu(PaMenuPrincipal.Rows[6]);
-            MostrarSubMenu(PaMenuPrincipal.Rows[7]);
-        }
+            ArrayList SubMenus = new ArrayList();
+            SubMenus.Add(6);
+            SubMenus.Add(7);
+            SubMenus.Add(8);
+            SubMenus.Add(9);
+            SubMenus.Add(10);
+            SubMenus.Add(11);
+            SubMenus.Add(12);
 
+            MostrarOcultarSubMenu(SubMenus);
+        }
         private void BtnClientes_Click(object sender, EventArgs e)
         {
             AbrirFormularios(new FrmClientes(), "Clientes");
-            OcultarSubMenu();
         }
-
         private void BtnMensajeros_Click(object sender, EventArgs e)
         {
-            OcultarSubMenu();
-        }
 
+        }
         private void BtnReportes_Click(object sender, EventArgs e)
         {
-            MostrarSubMenu(PaMenuPrincipal.Rows[9]);
-            MostrarSubMenu(PaMenuPrincipal.Rows[10]);
-        }
+            ArrayList SubMenus = new ArrayList();
+            SubMenus.Add(14);
+            SubMenus.Add(15);
 
+            MostrarOcultarSubMenu(SubMenus);
+        }
         private void BtnRptClientes_Click(object sender, EventArgs e)
         {
-            OcultarSubMenu();
-        }
 
+        }
         private void BtnRptMensajeros_Click(object sender, EventArgs e)
         {
-            OcultarSubMenu();
-        }
-        #endregion
 
+        }
         private void BtnUsuarios_Click(object sender, EventArgs e)
         {
             AbrirFormularios(new FrmUsuarios(), "Usuarios");
-            OcultarSubMenu();
         }
-
         private void BtnCerrarSesión_Click(object sender, EventArgs e)
         {
             this.Close();
             IS.Show();
         }
-
         private void BtnMaximizar_Click(object sender, EventArgs e)
         {
             if (WindowState == FormWindowState.Maximized)
@@ -184,15 +171,12 @@ namespace Interfaz
                 WindowState = FormWindowState.Maximized;
             }
         }
-
         private void BtnMinimizar_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
-
         private void XtPFormularios_CloseButtonClick(object sender, EventArgs e)
         {
-
             if (XtPFormularios.TabPages.Count == 1)
             {
                 XtPFormularios.TabPages.Remove(XtPFormularios.SelectedTabPage);
@@ -205,7 +189,11 @@ namespace Interfaz
                 XtPFormularios.TabPages.Remove(XtPFormularios.SelectedTabPage);
                 XtPFormularios.SelectedTabPageIndex = Indice - 1;
             }
-
         }
+        private void BtnMensajeros_Click_1(object sender, EventArgs e)
+        {
+            AbrirFormularios(new FrmMensajeros(), "Mensajeros");
+        }
+        #endregion
     }
 }

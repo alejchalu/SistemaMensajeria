@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using BaseDatos;
 
 namespace Controlador
@@ -14,6 +15,7 @@ namespace Controlador
         private DateTime Fecha_Registro;
         private string Usuario_Registro;
         private bool Activo;
+        private int ID;
         private Conexiones C = new Conexiones();
         #endregion
 
@@ -32,9 +34,14 @@ namespace Controlador
         public DateTime _Fecha_Registro { get => Fecha_Registro; set => Fecha_Registro = value; }
         public string _Usuario_Registro { get => Usuario_Registro; set => Usuario_Registro = value; }
         public bool _Activo { get => Activo; set => Activo = value; }
+        public int _ID { get => ID; set => ID = value; }
         #endregion
 
         #region Metodos
+        public DataTable Listar()
+        {
+            return C.ListarMensajeros();
+        }
         public void Insertar()
         {
             C.InsertarMensajeros(_Identificacion, _Nombre, _Telefono,_Email, _Fecha_Ingreso, _Fecha_Registro, _Usuario_Registro, _Activo);
@@ -42,12 +49,12 @@ namespace Controlador
 
         public void Actualizar()
         {
-            C.ActualizarMensajeros(_Identificacion, _Nombre, _Telefono,_Email, _Fecha_Ingreso, _Activo);
+            C.ActualizarMensajeros(_ID,_Identificacion, _Nombre, _Telefono,_Email, _Fecha_Ingreso, _Activo);
         }
 
         public void Eliminar()
         {
-            C.EliminarMensajeros(_Identificacion);
+            C.EliminarMensajeros(_ID);
         }
         #endregion
     }
