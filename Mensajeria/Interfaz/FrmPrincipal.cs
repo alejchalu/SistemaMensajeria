@@ -132,7 +132,7 @@ namespace Interfaz
         }
         private void BtnMensajeros_Click(object sender, EventArgs e)
         {
-
+            AbrirFormularios(new FrmMensajeros(), "Mensajeros");
         }
         private void BtnReportes_Click(object sender, EventArgs e)
         {
@@ -190,9 +190,15 @@ namespace Interfaz
                 XtPFormularios.SelectedTabPageIndex = Indice - 1;
             }
         }
-        private void BtnMensajeros_Click_1(object sender, EventArgs e)
+
+        private void BtnRutas_Click(object sender, EventArgs e)
         {
-            AbrirFormularios(new FrmMensajeros(), "Mensajeros");
+            AbrirFormularios(new FrmRutas(), "Rutas");
+        }
+
+        private void BtnPerfiles_Click(object sender, EventArgs e)
+        {
+            AbrirFormularios(new FrmPerfiles(), "Perfiles");
         }
         #endregion
     }

@@ -105,11 +105,23 @@
     <Compile Include="FrmMensajeros.Designer.cs">
       <DependentUpon>FrmMensajeros.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmPerfiles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPerfiles.Designer.cs">
+      <DependentUpon>FrmPerfiles.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmPrincipal.Designer.cs">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRutas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRutas.Designer.cs">
+      <DependentUpon>FrmRutas.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmUsuarios.cs">
       <SubType>Form</SubType>
@@ -135,8 +147,14 @@
     <EmbeddedResource Include="FrmMensajeros.resx">
       <DependentUpon>FrmMensajeros.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmPerfiles.resx">
+      <DependentUpon>FrmPerfiles.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRutas.resx">
+      <DependentUpon>FrmRutas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUsuarios.resx">
       <DependentUpon>FrmUsuarios.cs</DependentUpon>

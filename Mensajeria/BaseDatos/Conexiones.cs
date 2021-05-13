@@ -144,6 +144,31 @@ namespace BaseDatos
                 throw;
             }
         }
+        public DataTable ListarMensajerosCombo()
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("Men_P_ListarMensajerosCombo", Conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                Conexion.Open();
+
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = cmd;
+
+                DataTable table = new DataTable();
+                table.Locale = System.Globalization.CultureInfo.InvariantCulture;
+                adapter.Fill(table);
+
+                Conexion.Close();
+                return table;
+            }
+            catch (Exception)
+            {
+                Conexion.Close();
+                throw;
+            }
+        }
         public void InsertarMensajeros(string Identificacion, string Nombre, string Telefono,
             string Email, DateTime Fecha_Ingreso, DateTime Fecha_Registro, string Usuario_Registro, bool Activo)
 
@@ -753,7 +778,32 @@ namespace BaseDatos
         #endregion
 
         #region Metodos Rutas
-        public void InsertarRutas(string Nombre, string ID_Mensajero,
+        public DataTable ListarRutas()
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("Rut_P_ListarRutas", Conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                Conexion.Open();
+
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = cmd;
+
+                DataTable table = new DataTable();
+                table.Locale = System.Globalization.CultureInfo.InvariantCulture;
+                adapter.Fill(table);
+
+                Conexion.Close();
+                return table;
+            }
+            catch (Exception)
+            {
+                Conexion.Close();
+                throw;
+            }
+        }
+        public void InsertarRutas(string Nombre, int ID_Mensajero,
             DateTime Fecha_Registro, string Usuario_Registro, bool Activo)
 
         {
@@ -780,7 +830,7 @@ namespace BaseDatos
             }
         }
 
-        public void ActualizarRutas(int ID, string Nombre, string ID_Mensajero, bool Activo)
+        public void ActualizarRutas(int ID, string Nombre, int ID_Mensajero, bool Activo)
         {
             try
             {

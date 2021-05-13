@@ -42,6 +42,10 @@ namespace Controlador
         {
             return C.ListarMensajeros();
         }
+        public DataTable ListarCombo()
+        {
+            return C.ListarMensajerosCombo();
+        }
         public void Insertar()
         {
             C.InsertarMensajeros(_Identificacion, _Nombre, _Telefono,_Email, _Fecha_Ingreso, _Fecha_Registro, _Usuario_Registro, _Activo);

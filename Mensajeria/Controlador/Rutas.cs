@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using BaseDatos;
 
 namespace Controlador
@@ -8,8 +9,7 @@ namespace Controlador
         #region Variables
         private int ID;
         private string Nombre;
-        private string ID_Mensajero;
-        private string ID_Cliente;
+        private int ID_Mensajero;
         private DateTime Fecha_Registro;
         private string Usuario_Registro;
         private bool Activo;
@@ -26,14 +26,17 @@ namespace Controlador
         #region Gets y Sets
         public int _ID { get => ID; set => ID = value; }
         public string _Nombre { get => Nombre; set => Nombre = value; }
-        public string _ID_Mensajero { get => ID_Mensajero; set => ID_Mensajero = value; }
-        public string _ID_Cliente { get => ID_Cliente; set => ID_Cliente = value; }
+        public int _ID_Mensajero { get => ID_Mensajero; set => ID_Mensajero = value; }
         public DateTime _Fecha_Registro { get => Fecha_Registro; set => Fecha_Registro = value; }
         public string _Usuario_Registro { get => Usuario_Registro; set => Usuario_Registro = value; }
         public bool _Activo { get => Activo; set => Activo = value; }
         #endregion
 
         #region Metodos
+        public DataTable Listar()
+        {
+            return C.ListarRutas();
+        }
         public void Insertar()
         {
             C.InsertarRutas(_Nombre, _ID_Mensajero,_Fecha_Registro, _Usuario_Registro, _Activo);

@@ -53,7 +53,7 @@
             // BtnAgregar
             // 
             this.BtnAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnAgregar.Location = new System.Drawing.Point(206, 592);
+            this.BtnAgregar.Location = new System.Drawing.Point(164, 493);
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(75, 23);
             this.BtnAgregar.TabIndex = 5;
@@ -64,7 +64,7 @@
             // BtnActualizar
             // 
             this.BtnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnActualizar.Location = new System.Drawing.Point(287, 592);
+            this.BtnActualizar.Location = new System.Drawing.Point(245, 493);
             this.BtnActualizar.Name = "BtnActualizar";
             this.BtnActualizar.Size = new System.Drawing.Size(75, 23);
             this.BtnActualizar.TabIndex = 6;
@@ -150,7 +150,7 @@
             // 
             // CeActivo
             // 
-            this.CeActivo.Location = new System.Drawing.Point(289, 340);
+            this.CeActivo.Location = new System.Drawing.Point(152, 341);
             this.CeActivo.Name = "CeActivo";
             this.CeActivo.Properties.Caption = "Activo";
             this.CeActivo.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
@@ -160,7 +160,7 @@
             // BtnEliminar
             // 
             this.BtnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnEliminar.Location = new System.Drawing.Point(368, 592);
+            this.BtnEliminar.Location = new System.Drawing.Point(326, 493);
             this.BtnEliminar.Name = "BtnEliminar";
             this.BtnEliminar.Size = new System.Drawing.Size(75, 23);
             this.BtnEliminar.TabIndex = 7;

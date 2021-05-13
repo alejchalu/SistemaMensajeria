@@ -31,15 +31,6 @@ namespace Controlador
         #endregion
 
         #region Metodos
-        public ArrayList Listar()
-        {
-            return C.ListarRutas_Clientes();
-        }
-        public ArrayList Buscar(int Buscar)
-        {
-            return C.BuscarRutas_Clientes(Buscar);
-        }
-
         public void Insertar()
         {
             C.InsertarRutas_Clientes(_ID_Rutas, _ID_Cliente, _Fecha_Registro, _Usuario_Registro);

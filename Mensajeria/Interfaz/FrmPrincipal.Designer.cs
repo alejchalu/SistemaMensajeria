@@ -150,6 +150,7 @@
             this.BtnPerfiles.Text = "Perfiles";
             this.BtnPerfiles.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnPerfiles.UseVisualStyleBackColor = false;
+            this.BtnPerfiles.Click += new System.EventHandler(this.BtnPerfiles_Click);
             // 
             // BtnClientesRutas
             // 
@@ -190,6 +191,7 @@
             this.BtnRutas.Text = "Rutas";
             this.BtnRutas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnRutas.UseVisualStyleBackColor = false;
+            this.BtnRutas.Click += new System.EventHandler(this.BtnRutas_Click);
             // 
             // BtnMensajeros
             // 
@@ -210,7 +212,7 @@
             this.BtnMensajeros.Text = "Mensajeros";
             this.BtnMensajeros.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnMensajeros.UseVisualStyleBackColor = false;
-            this.BtnMensajeros.Click += new System.EventHandler(this.BtnMensajeros_Click_1);
+            this.BtnMensajeros.Click += new System.EventHandler(this.BtnMensajeros_Click);
             // 
             // BtnBoletas
             // 

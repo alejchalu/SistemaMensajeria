@@ -354,3 +354,5 @@ C:\Users\alejandro\Source\Repos\SistemaMensajeria\Mensajeria\Interfaz\obj\Debug\
 C:\Users\alejandro\Source\Repos\SistemaMensajeria\Mensajeria\Interfaz\obj\Debug\Interfaz.csprojAssemblyReference.cache
 C:\Users\alejandro\Source\Repos\SistemaMensajeria\Mensajeria\Interfaz\obj\Debug\Interfaz.FrmIngresosGastos.resources
 C:\Users\alejandro\Source\Repos\SistemaMensajeria\Mensajeria\Interfaz\obj\Debug\Interfaz.FrmMensajeros.resources
+C:\Users\alejandro\Source\Repos\SistemaMensajeria\Mensajeria\Interfaz\obj\Debug\Interfaz.FrmRutas.resources
+C:\Users\alejandro\Source\Repos\SistemaMensajeria\Mensajeria\Interfaz\obj\Debug\Interfaz.FrmPerfiles.resources
