@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections;
+using System.Data;
 using BaseDatos;
 
 namespace Controlador
 {
-    class Rutas_Clientes
+    public class Rutas_Clientes
     {
         #region Variables
         private int ID;
@@ -31,6 +32,14 @@ namespace Controlador
         #endregion
 
         #region Metodos
+        public DataTable ListarNoAsignados(string ID_Clientes)
+        {
+            return C.ListarRutas_ClientesNoAsignados(ID_Clientes);
+        }
+        public DataTable ListarAsignados()
+        {
+            return C.ListarRutas_ClientesAsignados(_ID_Rutas);
+        }
         public void Insertar()
         {
             C.InsertarRutas_Clientes(_ID_Rutas, _ID_Cliente, _Fecha_Registro, _Usuario_Registro);

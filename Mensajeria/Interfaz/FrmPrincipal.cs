@@ -200,6 +200,11 @@ namespace Interfaz
         {
             AbrirFormularios(new FrmPerfiles(), "Perfiles");
         }
+
+        private void BtnClientesRutas_Click(object sender, EventArgs e)
+        {
+            AbrirFormularios(new FrmClientesRutas(), "Clientes de rutas");
+        }
         #endregion
     }
 }

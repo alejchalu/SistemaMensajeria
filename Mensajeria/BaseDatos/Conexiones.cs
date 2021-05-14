@@ -778,6 +778,31 @@ namespace BaseDatos
         #endregion
 
         #region Metodos Rutas
+        public DataTable ListarRutasCombo()
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("Rut_P_ListarRutasCombo", Conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                Conexion.Open();
+
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = cmd;
+
+                DataTable table = new DataTable();
+                table.Locale = System.Globalization.CultureInfo.InvariantCulture;
+                adapter.Fill(table);
+
+                Conexion.Close();
+                return table;
+            }
+            catch (Exception)
+            {
+                Conexion.Close();
+                throw;
+            }
+        }
         public DataTable ListarRutas()
         {
             try
@@ -877,6 +902,60 @@ namespace BaseDatos
         #endregion
 
         #region Metodos Rutas_Clientes
+        public DataTable ListarRutas_ClientesNoAsignados(string ID_Clientes)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("Rut_P_ListarRutas_ClientesNoAsignados", Conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                Conexion.Open();
+
+                cmd.Parameters.AddWithValue("@ID_Clientes", ID_Clientes);
+
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = cmd;
+
+                DataTable table = new DataTable();
+                table.Locale = System.Globalization.CultureInfo.InvariantCulture;
+                adapter.Fill(table);
+
+                Conexion.Close();
+                return table;
+            }
+            catch (Exception)
+            {
+                Conexion.Close();
+                throw;
+            }
+        }
+        public DataTable ListarRutas_ClientesAsignados(int ID_Rutas)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("Rut_P_ListarRutas_ClientesAsignados", Conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                Conexion.Open();
+
+                cmd.Parameters.AddWithValue("@ID_Rutas", ID_Rutas);
+
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = cmd;
+
+                DataTable table = new DataTable();
+                table.Locale = System.Globalization.CultureInfo.InvariantCulture;
+                adapter.Fill(table);
+
+                Conexion.Close();
+                return table;
+            }
+            catch (Exception)
+            {
+                Conexion.Close();
+                throw;
+            }
+        }
         public void InsertarRutas_Clientes(int ID_Rutas, string ID_Cliente,
             DateTime Fecha_Registro, string Usuario_Registro)
 
@@ -902,7 +981,6 @@ namespace BaseDatos
                 throw;
             }
         }
-
         public void ActualizarRutas_Clientes(int ID, int ID_Rutas, string ID_Cliente)
         {
             try
@@ -925,7 +1003,6 @@ namespace BaseDatos
                 throw;
             }
         }
-
         public void EliminarRutas_Clientes(int ID)
         {
             try

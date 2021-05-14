@@ -171,6 +171,7 @@
             this.BtnClientesRutas.Text = "Clientes de rutas";
             this.BtnClientesRutas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnClientesRutas.UseVisualStyleBackColor = false;
+            this.BtnClientesRutas.Click += new System.EventHandler(this.BtnClientesRutas_Click);
             // 
             // BtnRutas
             // 

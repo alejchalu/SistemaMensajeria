@@ -81,6 +81,12 @@
     <Compile Include="FrmClientes.Designer.cs">
       <DependentUpon>FrmClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmClientesRutas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmClientesRutas.Designer.cs">
+      <DependentUpon>FrmClientesRutas.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmIngresosGastos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmClientes.resx">
       <DependentUpon>FrmClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmClientesRutas.resx">
+      <DependentUpon>FrmClientesRutas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmIngresosGastos.resx">
       <DependentUpon>FrmIngresosGastos.cs</DependentUpon>

@@ -33,6 +33,10 @@ namespace Controlador
         #endregion
 
         #region Metodos
+        public DataTable ListarCombo()
+        {
+            return C.ListarRutasCombo();
+        }
         public DataTable Listar()
         {
             return C.ListarRutas();
