@@ -74,6 +74,7 @@
             // 
             this.GvAsignados.GridControl = this.GcAsignados;
             this.GvAsignados.Name = "GvAsignados";
+            this.GvAsignados.OptionsSelection.MultiSelect = true;
             // 
             // BtnGuardar
             // 
@@ -83,6 +84,7 @@
             this.BtnGuardar.TabIndex = 2;
             this.BtnGuardar.Text = "Guardar";
             this.BtnGuardar.UseVisualStyleBackColor = true;
+            this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
             // BtnAsignar
             // 
@@ -102,6 +104,7 @@
             this.BtnNoAsignar.TabIndex = 4;
             this.BtnNoAsignar.Text = "No asignar";
             this.BtnNoAsignar.UseVisualStyleBackColor = true;
+            this.BtnNoAsignar.Click += new System.EventHandler(this.BtnNoAsignar_Click);
             // 
             // CbRutas
             // 

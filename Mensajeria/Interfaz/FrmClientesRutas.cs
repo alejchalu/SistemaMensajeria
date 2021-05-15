@@ -19,6 +19,10 @@ namespace Interfaz
         #endregion
 
         #region Metodos
+        private void Guardar()
+        {
+
+        }
         private void Cargar()
         {
             CbRutas.Properties.DataSource = R.ListarCombo();
@@ -39,6 +43,23 @@ namespace Interfaz
             GcNoAsignados.DataSource = RC.ListarNoAsignados(ClientesAsignados());
             //GvNoAsignados.Columns[0].Visible = false;
             GvNoAsignados.OptionsBehavior.Editable = false;
+        }       
+        private void NoAsignar()
+        {
+            foreach (int item in GvAsignados.GetSelectedRows())
+            {
+
+                GvNoAsignados.AddNewRow();
+                int Indice = GvNoAsignados.FocusedRowHandle;
+                GvNoAsignados.SetRowCellValue(Indice, "ID", GvAsignados.GetRowCellValue(Convert.ToInt32(item), "ID"));
+                GvNoAsignados.SetRowCellValue(Indice, "Nombre", GvAsignados.GetRowCellValue(Convert.ToInt32(item), "Nombre"));
+                GvNoAsignados.SetRowCellValue(Indice, "Teléfono", GvAsignados.GetRowCellValue(Convert.ToInt32(item), "Teléfono"));
+                GvNoAsignados.SetRowCellValue(Indice, "Dirección", GvAsignados.GetRowCellValue(Convert.ToInt32(item), "Dirección"));
+                GvNoAsignados.SetRowCellValue(Indice, "Email", GvAsignados.GetRowCellValue(Convert.ToInt32(item), "Email"));
+                GvNoAsignados.SetRowCellValue(Indice, "Comentarios", GvAsignados.GetRowCellValue(Convert.ToInt32(item), "Comentarios"));
+            }
+
+            GvAsignados.DeleteSelectedRows();
         }
         private void Asignar()
         {
@@ -46,15 +67,15 @@ namespace Interfaz
             {
                 
                 GvAsignados.AddNewRow();
-                int newRowHandle = GvAsignados.FocusedRowHandle;
-                GvAsignados.SetRowCellValue(newRowHandle, "ID", GvNoAsignados.GetRowCellValue(Convert.ToInt32(item), "ID"));
-                GvAsignados.SetRowCellValue(newRowHandle, "Nombre", GvNoAsignados.GetRowCellValue(Convert.ToInt32(item), "Nombre"));
-                GvAsignados.SetRowCellValue(newRowHandle, "Teléfono", GvNoAsignados.GetRowCellValue(Convert.ToInt32(item), "Teléfono"));
-                GvAsignados.SetRowCellValue(newRowHandle, "Dirección", GvNoAsignados.GetRowCellValue(Convert.ToInt32(item), "Dirección"));
-                GvAsignados.SetRowCellValue(newRowHandle, "Email", GvNoAsignados.GetRowCellValue(Convert.ToInt32(item), "Email"));
-                GvAsignados.SetRowCellValue(newRowHandle, "Comentarios", GvNoAsignados.GetRowCellValue(Convert.ToInt32(item), "Comentarios"));
-                GvAsignados.SetRowCellValue(newRowHandle, "Fecha registro", DateTime.Now);
-                GvAsignados.SetRowCellValue(newRowHandle, "Usuario registro", Globales.Usuario);
+                int Indice = GvAsignados.FocusedRowHandle;
+                GvAsignados.SetRowCellValue(Indice, "ID", GvNoAsignados.GetRowCellValue(Convert.ToInt32(item), "ID"));
+                GvAsignados.SetRowCellValue(Indice, "Nombre", GvNoAsignados.GetRowCellValue(Convert.ToInt32(item), "Nombre"));
+                GvAsignados.SetRowCellValue(Indice, "Teléfono", GvNoAsignados.GetRowCellValue(Convert.ToInt32(item), "Teléfono"));
+                GvAsignados.SetRowCellValue(Indice, "Dirección", GvNoAsignados.GetRowCellValue(Convert.ToInt32(item), "Dirección"));
+                GvAsignados.SetRowCellValue(Indice, "Email", GvNoAsignados.GetRowCellValue(Convert.ToInt32(item), "Email"));
+                GvAsignados.SetRowCellValue(Indice, "Comentarios", GvNoAsignados.GetRowCellValue(Convert.ToInt32(item), "Comentarios"));
+                GvAsignados.SetRowCellValue(Indice, "Fecha registro", DateTime.Now);
+                GvAsignados.SetRowCellValue(Indice, "Usuario registro", Globales.Usuario);
             }
 
             GvNoAsignados.DeleteSelectedRows();
@@ -86,6 +107,15 @@ namespace Interfaz
         private void BtnAsignar_Click(object sender, EventArgs e)
         {
             Asignar();
+        }
+
+        private void BtnNoAsignar_Click(object sender, EventArgs e)
+        {
+            NoAsignar();
+        }
+        private void BtnGuardar_Click(object sender, EventArgs e)
+        {
+            Guardar();
         }
         #endregion
     }
