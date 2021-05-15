@@ -31,7 +31,7 @@
             this.GcClientes = new DevExpress.XtraGrid.GridControl();
             this.GvClientes = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.BtnAgregar = new System.Windows.Forms.Button();
-            this.Actualizar = new System.Windows.Forms.Button();
+            this.BtnActualizar = new System.Windows.Forms.Button();
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -81,16 +81,16 @@
             this.BtnAgregar.UseVisualStyleBackColor = true;
             this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
-            // Actualizar
+            // BtnActualizar
             // 
-            this.Actualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Actualizar.Location = new System.Drawing.Point(274, 492);
-            this.Actualizar.Name = "Actualizar";
-            this.Actualizar.Size = new System.Drawing.Size(75, 23);
-            this.Actualizar.TabIndex = 9;
-            this.Actualizar.Text = "Actualizar";
-            this.Actualizar.UseVisualStyleBackColor = true;
-            this.Actualizar.Click += new System.EventHandler(this.Actualizar_Click);
+            this.BtnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnActualizar.Location = new System.Drawing.Point(274, 492);
+            this.BtnActualizar.Name = "BtnActualizar";
+            this.BtnActualizar.Size = new System.Drawing.Size(75, 23);
+            this.BtnActualizar.TabIndex = 9;
+            this.BtnActualizar.Text = "Actualizar";
+            this.BtnActualizar.UseVisualStyleBackColor = true;
+            this.BtnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
             // 
             // BtnEliminar
             // 
@@ -251,7 +251,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BtnEliminar);
-            this.Controls.Add(this.Actualizar);
+            this.Controls.Add(this.BtnActualizar);
             this.Controls.Add(this.BtnAgregar);
             this.Controls.Add(this.GcClientes);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -272,7 +272,7 @@
         private DevExpress.XtraGrid.GridControl GcClientes;
         private DevExpress.XtraGrid.Views.Grid.GridView GvClientes;
         private System.Windows.Forms.Button BtnAgregar;
-        private System.Windows.Forms.Button Actualizar;
+        private System.Windows.Forms.Button BtnActualizar;
         private System.Windows.Forms.Button BtnEliminar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

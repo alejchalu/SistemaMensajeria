@@ -16,25 +16,8 @@ namespace Interfaz
         private int xClick = 0, yClick = 0;
         #endregion
 
-        #region Eventos
-        private void BtnSalir_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void FrmInicioSesion_Load(object sender, EventArgs e)
-        {
-            TxtUsuario.Focus();
-        }
-
-        private void FrmInicioSesion_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.Button != MouseButtons.Left)
-            { xClick = e.X; yClick = e.Y; }
-            else
-            { this.Left = this.Left + (e.X - xClick); this.Top = this.Top + (e.Y - yClick); }
-        }
-        private void BtnIngresar_Click(object sender, EventArgs e)
+        #region Metodos
+        private void Ingresar()
         {
             U._Usuario = TxtUsuario.Text;
             U._Contraseña = TxtContraseña.Text;
@@ -65,6 +48,30 @@ namespace Interfaz
                 this.Hide();
                 P.Show();
             }
+        }
+        #endregion
+
+        #region Eventos
+        private void BtnSalir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void FrmInicioSesion_Load(object sender, EventArgs e)
+        {
+            TxtUsuario.Focus();
+        }
+
+        private void FrmInicioSesion_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left)
+            { xClick = e.X; yClick = e.Y; }
+            else
+            { this.Left = this.Left + (e.X - xClick); this.Top = this.Top + (e.Y - yClick); }
+        }
+        private void BtnIngresar_Click(object sender, EventArgs e)
+        {
+            Ingresar();
         }
     }
     #endregion

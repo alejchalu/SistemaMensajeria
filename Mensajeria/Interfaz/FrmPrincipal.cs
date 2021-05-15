@@ -19,7 +19,33 @@ namespace Interfaz
         #endregion
 
         #region Metodos
-
+        private void Maximizar()
+        {
+            if (WindowState == FormWindowState.Maximized)
+            {
+                WindowState = FormWindowState.Normal;
+            }
+            else
+            {
+                this.MaximumSize = new System.Drawing.Size(Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height);
+                WindowState = FormWindowState.Maximized;
+            }
+        }     
+        private void CerrarFormularios()
+        {
+            if (XtPFormularios.TabPages.Count == 1)
+            {
+                XtPFormularios.TabPages.Remove(XtPFormularios.SelectedTabPage);
+                XtPFormularios.Visible = false;
+            }
+            else
+            {
+                int Indice = 0;
+                Indice = XtPFormularios.SelectedTabPageIndex;
+                XtPFormularios.TabPages.Remove(XtPFormularios.SelectedTabPage);
+                XtPFormularios.SelectedTabPageIndex = Indice - 1;
+            }
+        }
         //Cambiar de tamaño al formulario
         protected override void OnPaint(PaintEventArgs e)
         {
@@ -28,7 +54,6 @@ namespace Interfaz
             rc = new Rectangle(0, 0, this.ClientSize.Width, cCaption);
             e.Graphics.FillRectangle(Brushes.DarkBlue, rc);
         }
-
         //Mover formulario
         protected override void WndProc(ref Message m)
         {
@@ -161,15 +186,7 @@ namespace Interfaz
         }
         private void BtnMaximizar_Click(object sender, EventArgs e)
         {
-            if (WindowState == FormWindowState.Maximized)
-            {
-                WindowState = FormWindowState.Normal;
-            }
-            else
-            {
-                this.MaximumSize = new System.Drawing.Size(Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height);
-                WindowState = FormWindowState.Maximized;
-            }
+            Maximizar();
         }
         private void BtnMinimizar_Click(object sender, EventArgs e)
         {
@@ -177,18 +194,7 @@ namespace Interfaz
         }
         private void XtPFormularios_CloseButtonClick(object sender, EventArgs e)
         {
-            if (XtPFormularios.TabPages.Count == 1)
-            {
-                XtPFormularios.TabPages.Remove(XtPFormularios.SelectedTabPage);
-                XtPFormularios.Visible = false;
-            }
-            else
-            {
-                int Indice = 0;
-                Indice = XtPFormularios.SelectedTabPageIndex;
-                XtPFormularios.TabPages.Remove(XtPFormularios.SelectedTabPage);
-                XtPFormularios.SelectedTabPageIndex = Indice - 1;
-            }
+            CerrarFormularios();
         }
 
         private void BtnRutas_Click(object sender, EventArgs e)
