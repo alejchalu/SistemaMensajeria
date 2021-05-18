@@ -19,66 +19,111 @@ namespace Interfaz
         #endregion
 
         #region Metodos
-        private void Guardar()
-        {
-
-        }
         private void Cargar()
         {
-            CbRutas.Properties.DataSource = R.ListarCombo();
-            DataTable Tabla = (DataTable)CbRutas.Properties.DataSource;
-            CbRutas.Properties.ValueMember = "ID";
-            CbRutas.Properties.DisplayMember = "Nombre";
-            CbRutas.Properties.DropDownRows = Tabla.Rows.Count;
-            CbRutas.Properties.PopulateColumns();
-            CbRutas.Properties.Columns[CbRutas.Properties.ValueMember].Visible = false;
+            try
+            {
+                CbRutas.Properties.DataSource = R.ListarCombo();
+                DataTable Tabla = (DataTable)CbRutas.Properties.DataSource;
+                CbRutas.Properties.ValueMember = "ID";
+                CbRutas.Properties.DisplayMember = "Nombre";
+                CbRutas.Properties.DropDownRows = Tabla.Rows.Count;
+                CbRutas.Properties.PopulateColumns();
+                CbRutas.Properties.Columns[CbRutas.Properties.ValueMember].Visible = false;
+            }
+            catch (Exception ex)
+            {
+                FrmMensaje M = new FrmMensaje();
+                M.UnBoton(ex.Message, "Aceptar", Properties.Resources.close);
+            }
         }
         private void CargarGrids()
         {
-            RC._ID_Rutas = Convert.ToInt32(CbRutas.EditValue);
-            GcAsignados.DataSource = RC.ListarAsignados();
-            //GvAsignados.Columns[0].Visible = false;
-            GvAsignados.OptionsBehavior.Editable = false;
+            try
+            {
+                RC._ID_Rutas = Convert.ToInt32(CbRutas.EditValue);
+                GcAsignados.DataSource = RC.ListarAsignados();
+                GvAsignados.Columns[0].Visible = false;
+                GvAsignados.Columns[1].Visible = false;
+                GvAsignados.OptionsBehavior.Editable = false;
 
-            GcNoAsignados.DataSource = RC.ListarNoAsignados(ClientesAsignados());
-            //GvNoAsignados.Columns[0].Visible = false;
-            GvNoAsignados.OptionsBehavior.Editable = false;
-        }       
+                GcNoAsignados.DataSource = RC.ListarNoAsignados(ClientesAsignados());
+                GvNoAsignados.Columns[0].Visible = false;
+                GvNoAsignados.OptionsBehavior.Editable = false;
+            }
+            catch (Exception ex)
+            {
+                FrmMensaje M = new FrmMensaje();
+                M.UnBoton(ex.Message, "Aceptar", Properties.Resources.close);
+            }
+        }
         private void NoAsignar()
         {
-            foreach (int item in GvAsignados.GetSelectedRows())
+            try
             {
+                foreach (int item in GvAsignados.GetSelectedRows())
+                {
 
-                GvNoAsignados.AddNewRow();
-                int Indice = GvNoAsignados.FocusedRowHandle;
-                GvNoAsignados.SetRowCellValue(Indice, "ID", GvAsignados.GetRowCellValue(Convert.ToInt32(item), "ID"));
-                GvNoAsignados.SetRowCellValue(Indice, "Nombre", GvAsignados.GetRowCellValue(Convert.ToInt32(item), "Nombre"));
-                GvNoAsignados.SetRowCellValue(Indice, "Teléfono", GvAsignados.GetRowCellValue(Convert.ToInt32(item), "Teléfono"));
-                GvNoAsignados.SetRowCellValue(Indice, "Dirección", GvAsignados.GetRowCellValue(Convert.ToInt32(item), "Dirección"));
-                GvNoAsignados.SetRowCellValue(Indice, "Email", GvAsignados.GetRowCellValue(Convert.ToInt32(item), "Email"));
-                GvNoAsignados.SetRowCellValue(Indice, "Comentarios", GvAsignados.GetRowCellValue(Convert.ToInt32(item), "Comentarios"));
+                    GvNoAsignados.AddNewRow();
+                    int Indice = GvNoAsignados.FocusedRowHandle;
+                    GvNoAsignados.SetRowCellValue(Indice, "ID", GvAsignados.GetRowCellValue(Convert.ToInt32(item), "ID_Cliente"));
+                    GvNoAsignados.SetRowCellValue(Indice, "Nombre", GvAsignados.GetRowCellValue(Convert.ToInt32(item), "Nombre"));
+                    GvNoAsignados.SetRowCellValue(Indice, "Teléfono", GvAsignados.GetRowCellValue(Convert.ToInt32(item), "Teléfono"));
+                    GvNoAsignados.SetRowCellValue(Indice, "Dirección", GvAsignados.GetRowCellValue(Convert.ToInt32(item), "Dirección"));
+                    GvNoAsignados.SetRowCellValue(Indice, "Email", GvAsignados.GetRowCellValue(Convert.ToInt32(item), "Email"));
+                    GvNoAsignados.SetRowCellValue(Indice, "Comentarios", GvAsignados.GetRowCellValue(Convert.ToInt32(item), "Comentarios"));
+
+                    RC._ID_Rutas = Convert.ToInt32(GvAsignados.GetRowCellValue(item, "ID_Rutas"));
+                    RC._ID_Cliente = Convert.ToInt32(GvAsignados.GetRowCellValue(item, "ID_Cliente"));
+                    RC.Eliminar();
+
+                    GvNoAsignados.UpdateCurrentRow();
+                }
+
+                GvAsignados.DeleteSelectedRows();
             }
-
-            GvAsignados.DeleteSelectedRows();
+            catch (Exception ex)
+            {
+                FrmMensaje M = new FrmMensaje();
+                M.UnBoton(ex.Message, "Aceptar", Properties.Resources.close);
+            }
         }
         private void Asignar()
         {
-            foreach (int item in GvNoAsignados.GetSelectedRows())
+            try
             {
-                
-                GvAsignados.AddNewRow();
-                int Indice = GvAsignados.FocusedRowHandle;
-                GvAsignados.SetRowCellValue(Indice, "ID", GvNoAsignados.GetRowCellValue(Convert.ToInt32(item), "ID"));
-                GvAsignados.SetRowCellValue(Indice, "Nombre", GvNoAsignados.GetRowCellValue(Convert.ToInt32(item), "Nombre"));
-                GvAsignados.SetRowCellValue(Indice, "Teléfono", GvNoAsignados.GetRowCellValue(Convert.ToInt32(item), "Teléfono"));
-                GvAsignados.SetRowCellValue(Indice, "Dirección", GvNoAsignados.GetRowCellValue(Convert.ToInt32(item), "Dirección"));
-                GvAsignados.SetRowCellValue(Indice, "Email", GvNoAsignados.GetRowCellValue(Convert.ToInt32(item), "Email"));
-                GvAsignados.SetRowCellValue(Indice, "Comentarios", GvNoAsignados.GetRowCellValue(Convert.ToInt32(item), "Comentarios"));
-                GvAsignados.SetRowCellValue(Indice, "Fecha registro", DateTime.Now);
-                GvAsignados.SetRowCellValue(Indice, "Usuario registro", Globales.Usuario);
-            }
+                foreach (int item in GvNoAsignados.GetSelectedRows())
+                {
+                    GvAsignados.AddNewRow();
+                    int Indice = GvAsignados.FocusedRowHandle;
+                    GvAsignados.SetRowCellValue(Indice, "ID_Rutas", Convert.ToInt32(CbRutas.EditValue));
+                    GvAsignados.SetRowCellValue(Indice, "ID_Cliente", GvNoAsignados.GetRowCellValue(Convert.ToInt32(item), "ID"));
+                    GvAsignados.SetRowCellValue(Indice, "Nombre", GvNoAsignados.GetRowCellValue(Convert.ToInt32(item), "Nombre"));
+                    GvAsignados.SetRowCellValue(Indice, "Teléfono", GvNoAsignados.GetRowCellValue(Convert.ToInt32(item), "Teléfono"));
+                    GvAsignados.SetRowCellValue(Indice, "Dirección", GvNoAsignados.GetRowCellValue(Convert.ToInt32(item), "Dirección"));
+                    GvAsignados.SetRowCellValue(Indice, "Email", GvNoAsignados.GetRowCellValue(Convert.ToInt32(item), "Email"));
+                    GvAsignados.SetRowCellValue(Indice, "Comentarios", GvNoAsignados.GetRowCellValue(Convert.ToInt32(item), "Comentarios"));
+                    GvAsignados.SetRowCellValue(Indice, "Fecha registro", DateTime.Now);
+                    GvAsignados.SetRowCellValue(Indice, "Usuario registro", Globales.Usuario);
 
-            GvNoAsignados.DeleteSelectedRows();
+                    RC._ID_Rutas = Convert.ToInt32(CbRutas.EditValue);
+                    RC._ID_Cliente = Convert.ToInt32(GvNoAsignados.GetRowCellValue(item, "ID"));
+                    RC._Fecha_Registro = DateTime.Now;
+                    RC._Usuario_Registro = Globales.Usuario;
+                    RC.Insertar();
+
+                    GvAsignados.UpdateCurrentRow();
+
+                }
+
+                GvNoAsignados.DeleteSelectedRows();
+                
+            }
+            catch (Exception ex)
+            {
+                FrmMensaje M = new FrmMensaje();
+                M.UnBoton(ex.Message, "Aceptar", Properties.Resources.close);
+            }
         }
         private string ClientesAsignados()
         {
@@ -86,7 +131,7 @@ namespace Interfaz
             DataTable Tabla = (DataTable)GcAsignados.DataSource;
             foreach (DataRow row in Tabla.Rows)
             {
-                IDs = IDs + row["ID"].ToString() + ",";
+                IDs = IDs + row["ID_Cliente"].ToString() + ",";
             }
 
             return IDs;
@@ -112,10 +157,6 @@ namespace Interfaz
         private void BtnNoAsignar_Click(object sender, EventArgs e)
         {
             NoAsignar();
-        }
-        private void BtnGuardar_Click(object sender, EventArgs e)
-        {
-            Guardar();
         }
         #endregion
     }

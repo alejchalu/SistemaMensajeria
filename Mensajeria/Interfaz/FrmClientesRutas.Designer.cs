@@ -32,7 +32,6 @@
             this.GvNoAsignados = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.GcAsignados = new DevExpress.XtraGrid.GridControl();
             this.GvAsignados = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.BtnGuardar = new System.Windows.Forms.Button();
             this.BtnAsignar = new System.Windows.Forms.Button();
             this.BtnNoAsignar = new System.Windows.Forms.Button();
             this.CbRutas = new DevExpress.XtraEditors.LookUpEdit();
@@ -62,6 +61,7 @@
             // 
             // GcAsignados
             // 
+            this.GcAsignados.AllowRestoreSelectionAndFocusedRow = DevExpress.Utils.DefaultBoolean.True;
             this.GcAsignados.Location = new System.Drawing.Point(-1, 58);
             this.GcAsignados.MainView = this.GvAsignados;
             this.GcAsignados.Name = "GcAsignados";
@@ -74,17 +74,8 @@
             // 
             this.GvAsignados.GridControl = this.GcAsignados;
             this.GvAsignados.Name = "GvAsignados";
+            this.GvAsignados.OptionsScrollAnnotations.ShowSelectedRows = DevExpress.Utils.DefaultBoolean.True;
             this.GvAsignados.OptionsSelection.MultiSelect = true;
-            // 
-            // BtnGuardar
-            // 
-            this.BtnGuardar.Location = new System.Drawing.Point(281, 501);
-            this.BtnGuardar.Name = "BtnGuardar";
-            this.BtnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.BtnGuardar.TabIndex = 2;
-            this.BtnGuardar.Text = "Guardar";
-            this.BtnGuardar.UseVisualStyleBackColor = true;
-            this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
             // BtnAsignar
             // 
@@ -137,7 +128,6 @@
             this.Controls.Add(this.CbRutas);
             this.Controls.Add(this.BtnNoAsignar);
             this.Controls.Add(this.BtnAsignar);
-            this.Controls.Add(this.BtnGuardar);
             this.Controls.Add(this.GcAsignados);
             this.Controls.Add(this.GcNoAsignados);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -160,7 +150,6 @@
         private DevExpress.XtraGrid.Views.Grid.GridView GvNoAsignados;
         private DevExpress.XtraGrid.GridControl GcAsignados;
         private DevExpress.XtraGrid.Views.Grid.GridView GvAsignados;
-        private System.Windows.Forms.Button BtnGuardar;
         private System.Windows.Forms.Button BtnAsignar;
         private System.Windows.Forms.Button BtnNoAsignar;
         private DevExpress.XtraEditors.LookUpEdit CbRutas;

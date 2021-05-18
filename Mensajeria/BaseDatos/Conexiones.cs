@@ -956,7 +956,7 @@ namespace BaseDatos
                 throw;
             }
         }
-        public void InsertarRutas_Clientes(int ID_Rutas, string ID_Cliente,
+        public void InsertarRutas_Clientes(int ID_Rutas, int ID_Cliente,
             DateTime Fecha_Registro, string Usuario_Registro)
 
         {
@@ -981,29 +981,7 @@ namespace BaseDatos
                 throw;
             }
         }
-        public void ActualizarRutas_Clientes(int ID, int ID_Rutas, string ID_Cliente)
-        {
-            try
-            {
-                SqlCommand cmd = new SqlCommand("Rut_P_ActualizarRutas_Clientes", Conexion);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                Conexion.Open();
-
-                cmd.Parameters.AddWithValue("@ID", ID);
-                cmd.Parameters.AddWithValue("@ID_Rutas", ID_Rutas);
-                cmd.Parameters.AddWithValue("@ID_Cliente", ID_Cliente);
-
-                cmd.ExecuteNonQuery();
-                Conexion.Close();
-            }
-            catch (Exception)
-            {
-                Conexion.Close();
-                throw;
-            }
-        }
-        public void EliminarRutas_Clientes(int ID)
+        public void EliminarRutas_Clientes(int ID_Rutas,int ID_Cliente)
         {
             try
             {
@@ -1012,7 +990,8 @@ namespace BaseDatos
 
                 Conexion.Open();
 
-                cmd.Parameters.AddWithValue("@ID", ID);
+                cmd.Parameters.AddWithValue("@ID_Rutas", ID_Rutas);
+                cmd.Parameters.AddWithValue("@ID_Cliente", ID_Cliente);
 
                 cmd.ExecuteNonQuery();
                 Conexion.Close();
