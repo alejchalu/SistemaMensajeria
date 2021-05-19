@@ -583,7 +583,34 @@ namespace BaseDatos
         #endregion
 
         #region Metodos Perfil_Permisos
-        public void InsertarPerfil_Permisos(int ID_Perfil, string Descripcion,
+        public DataTable ListarPerfilesPermisos(int ID_Perfil)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("Per_P_ListarPerfil_Permisos", Conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                Conexion.Open();
+
+                cmd.Parameters.AddWithValue("@ID_Perfil", ID_Perfil);
+
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = cmd;
+
+                DataTable table = new DataTable();
+                table.Locale = System.Globalization.CultureInfo.InvariantCulture;
+                adapter.Fill(table);
+
+                Conexion.Close();
+                return table;
+            }
+            catch (Exception)
+            {
+                Conexion.Close();
+                throw;
+            }
+        }
+        public void InsertarPerfil_Permisos(int ID_Perfil,int ID,
             DateTime Fecha_Registro, string Usuario_Registro)
 
         {
@@ -595,7 +622,7 @@ namespace BaseDatos
                 Conexion.Open();
 
                 cmd.Parameters.AddWithValue("@ID_Perfil", ID_Perfil);
-                cmd.Parameters.AddWithValue("@Descripcion", Descripcion);
+                cmd.Parameters.AddWithValue("@ID", ID);
                 cmd.Parameters.AddWithValue("@Fecha_Registro", Fecha_Registro);
                 cmd.Parameters.AddWithValue("@Usuario_Registro", Usuario_Registro);
 
@@ -609,30 +636,7 @@ namespace BaseDatos
             }
         }
 
-        public void ActualizarPerfil_Permisos(int ID_Perfil, int ID, string Descripcion)
-        {
-            try
-            {
-                SqlCommand cmd = new SqlCommand("Per_P_ActualizarPerfil_Permisos", Conexion);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                Conexion.Open();
-
-                cmd.Parameters.AddWithValue("@ID_Perfil", ID_Perfil);
-                cmd.Parameters.AddWithValue("@ID", ID);
-                cmd.Parameters.AddWithValue("@Descripcion", Descripcion);
-
-                cmd.ExecuteNonQuery();
-                Conexion.Close();
-            }
-            catch (Exception)
-            {
-                Conexion.Close();
-                throw;
-            }
-        }
-
-        public void EliminarPerfil_Permisos(int ID)
+        public void EliminarPerfil_Permisos(int ID_Perfil,int ID)
         {
             try
             {
@@ -641,6 +645,7 @@ namespace BaseDatos
 
                 Conexion.Open();
 
+                cmd.Parameters.AddWithValue("@ID_Perfil", ID_Perfil);
                 cmd.Parameters.AddWithValue("@ID", ID);
 
                 cmd.ExecuteNonQuery();
@@ -995,6 +1000,59 @@ namespace BaseDatos
 
                 cmd.ExecuteNonQuery();
                 Conexion.Close();
+            }
+            catch (Exception)
+            {
+                Conexion.Close();
+                throw;
+            }
+        }
+        #endregion
+
+        #region Metodos Menu
+        public DataTable ListarMenu()
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("Men_P_ListarMenu", Conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                Conexion.Open();
+
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = cmd;
+
+                DataTable table = new DataTable();
+                table.Locale = System.Globalization.CultureInfo.InvariantCulture;
+                adapter.Fill(table);
+
+                Conexion.Close();
+                return table;
+            }
+            catch (Exception)
+            {
+                Conexion.Close();
+                throw;
+            }
+        }
+        public DataTable ListarMenuPermisos()
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("Men_P_ListarMenuPermisos", Conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                Conexion.Open();
+
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = cmd;
+
+                DataTable table = new DataTable();
+                table.Locale = System.Globalization.CultureInfo.InvariantCulture;
+                adapter.Fill(table);
+
+                Conexion.Close();
+                return table;
             }
             catch (Exception)
             {

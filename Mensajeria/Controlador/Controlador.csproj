@@ -45,6 +45,7 @@
     <Compile Include="Clientes.cs" />
     <Compile Include="Ingresos_Gastos.cs" />
     <Compile Include="Mensajeros.cs" />
+    <Compile Include="Menus.cs" />
     <Compile Include="Perfiles.cs" />
     <Compile Include="Perfil_Permisos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

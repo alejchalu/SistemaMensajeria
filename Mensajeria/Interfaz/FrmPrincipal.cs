@@ -1,6 +1,5 @@
-﻿using DevExpress.Utils.Layout;
+﻿using Controlador;
 using System;
-using System.Collections;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -16,6 +15,7 @@ namespace Interfaz
         private FrmInicioSesion IS = new FrmInicioSesion();
         private const int cGrip = 16;
         private const int cCaption = 32;
+        private Menus M = new Menus();
         #endregion
 
         #region Metodos
@@ -74,18 +74,19 @@ namespace Interfaz
             }
             base.WndProc(ref m);
         }
-        private void MostrarOcultarSubMenu(ArrayList Indices)
+        private void Cargar()
         {
-            foreach (int i in Indices)
+            try
             {
-                if (PaMenuPrincipal.Rows[i].Visible == false)
-                {
-                    PaMenuPrincipal.Rows[i].Visible = true;
-                }
-                else if (PaMenuPrincipal.Rows[i].Visible == true)
-                {
-                    PaMenuPrincipal.Rows[i].Visible = false;
-                }
+                TlOpcionesMenu.ParentFieldName = "ID_Padre";
+                TlOpcionesMenu.KeyFieldName = "ID";
+                TlOpcionesMenu.DataSource = M.ListarMenu();
+                TlOpcionesMenu.Columns[1].Visible = false;
+            }
+            catch (Exception ex)
+            {
+                FrmMensaje M = new FrmMensaje();
+                M.UnBoton(ex.Message, "Aceptar", Properties.Resources.close);
             }
         }
         private void AbrirFormularios(Form FormularioMostrar, string Nombre)
@@ -122,63 +123,6 @@ namespace Interfaz
         #endregion
 
         #region Eventos
-        private void BtnProcesos_Click(object sender, EventArgs e)
-        {
-            ArrayList SubMenus = new ArrayList();
-            SubMenus.Add(3);
-            SubMenus.Add(4);
-
-            MostrarOcultarSubMenu(SubMenus);
-        }
-        private void BtnIngresosGastos_Click(object sender, EventArgs e)
-        {
-            AbrirFormularios(new FrmIngresosGastos(), "Ingresos y gastos");
-        }
-        private void BtnDocumentosMensajeros_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void BtnMantenimientos_Click(object sender, EventArgs e)
-        {
-            ArrayList SubMenus = new ArrayList();
-            SubMenus.Add(6);
-            SubMenus.Add(7);
-            SubMenus.Add(8);
-            SubMenus.Add(9);
-            SubMenus.Add(10);
-            SubMenus.Add(11);
-            SubMenus.Add(12);
-
-            MostrarOcultarSubMenu(SubMenus);
-        }
-        private void BtnClientes_Click(object sender, EventArgs e)
-        {
-            AbrirFormularios(new FrmClientes(), "Clientes");
-        }
-        private void BtnMensajeros_Click(object sender, EventArgs e)
-        {
-            AbrirFormularios(new FrmMensajeros(), "Mensajeros");
-        }
-        private void BtnReportes_Click(object sender, EventArgs e)
-        {
-            ArrayList SubMenus = new ArrayList();
-            SubMenus.Add(14);
-            SubMenus.Add(15);
-
-            MostrarOcultarSubMenu(SubMenus);
-        }
-        private void BtnRptClientes_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void BtnRptMensajeros_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void BtnUsuarios_Click(object sender, EventArgs e)
-        {
-            AbrirFormularios(new FrmUsuarios(), "Usuarios");
-        }
         private void BtnCerrarSesión_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -197,19 +141,19 @@ namespace Interfaz
             CerrarFormularios();
         }
 
-        private void BtnRutas_Click(object sender, EventArgs e)
+        private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-            AbrirFormularios(new FrmRutas(), "Rutas");
+            Cargar();
         }
 
-        private void BtnPerfiles_Click(object sender, EventArgs e)
+        private void TlOpcionesMenu_RowClick(object sender, DevExpress.XtraTreeList.RowClickEventArgs e)
         {
-            AbrirFormularios(new FrmPerfiles(), "Perfiles");
-        }
-
-        private void BtnClientesRutas_Click(object sender, EventArgs e)
-        {
-            AbrirFormularios(new FrmClientesRutas(), "Clientes de rutas");
+            if (Convert.ToInt32(e.Node.GetValue("ID_Padre")) != 0 && Convert.ToString(e.Node.GetValue("Formulario")) != "")
+            {
+                Type CAType = Type.GetType("Interfaz." + Convert.ToString(e.Node.GetValue("Formulario")));
+                Form nextForm2 = (Form)Activator.CreateInstance(CAType);
+                AbrirFormularios(nextForm2, Convert.ToString(e.Node.GetValue("Opciones de menu")));
+            }
         }
         #endregion
     }
