@@ -61,7 +61,6 @@
             // 
             this.TlOpcionesMenu.Location = new System.Drawing.Point(0, 89);
             this.TlOpcionesMenu.Name = "TlOpcionesMenu";
-            this.TlOpcionesMenu.OptionsBehavior.AllowRecursiveNodeChecking = true;
             this.TlOpcionesMenu.OptionsBehavior.Editable = false;
             this.TlOpcionesMenu.OptionsPrint.PrintHorzLines = false;
             this.TlOpcionesMenu.OptionsPrint.PrintPageHeader = false;
@@ -73,8 +72,7 @@
             this.TlOpcionesMenu.OptionsView.RootCheckBoxStyle = DevExpress.XtraTreeList.NodeCheckBoxStyle.Check;
             this.TlOpcionesMenu.Size = new System.Drawing.Size(632, 443);
             this.TlOpcionesMenu.TabIndex = 10;
-            this.TlOpcionesMenu.BeforeCheckNode += new DevExpress.XtraTreeList.CheckNodeEventHandler(this.TlOpcionesMenu_BeforeCheckNode);
-            this.TlOpcionesMenu.NodeChanged += new DevExpress.XtraTreeList.NodeChangedEventHandler(this.TlOpcionesMenu_NodeChanged);
+            this.TlOpcionesMenu.AfterCheckNode += new DevExpress.XtraTreeList.NodeEventHandler(this.TlOpcionesMenu_AfterCheckNode);
             // 
             // FrmPermisosPerfiles
             // 

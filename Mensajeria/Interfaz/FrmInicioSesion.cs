@@ -19,34 +19,43 @@ namespace Interfaz
         #region Metodos
         private void Ingresar()
         {
-            U._Usuario = TxtUsuario.Text;
-            U._Contraseña = TxtContraseña.Text;
-            Globales.Usuario = TxtUsuario.Text;
+            try
+            {
+                U._Usuario = TxtUsuario.Text;
+                U._Contraseña = TxtContraseña.Text;
+                Globales.Usuario = TxtUsuario.Text;
 
-            if (TxtUsuario.Text == "" || TxtContraseña.Text == "")
+                if (TxtUsuario.Text == "" || TxtContraseña.Text == "")
+                {
+                    FrmMensaje M = new FrmMensaje();
+                    M.UnBoton("Debe ingresar todos los datos solicitados", "Aceptar", Properties.Resources.close);
+
+                    TxtUsuario.Clear();
+                    TxtContraseña.Clear();
+                    TxtUsuario.Focus();
+                }
+                else if (U.Validar() == "")
+                {
+                    FrmMensaje M = new FrmMensaje();
+                    M.UnBoton("El usuario o la contraseña son incorrectos", "Aceptar", Properties.Resources.close);
+
+                    TxtUsuario.Clear();
+                    TxtContraseña.Clear();
+                    TxtUsuario.Focus();
+                }
+                else
+                {
+                    FrmPrincipal P = new FrmPrincipal();
+                    P.LblUsuario.Text = P.LblUsuario.Text + U._Nombre;
+                    Globales.ID_Perfil = U._ID_Perfil;
+                    this.Hide();
+                    P.Show();
+                }
+            }
+            catch (Exception ex)
             {
                 FrmMensaje M = new FrmMensaje();
-                M.UnBoton("Debe ingresar todos los datos solicitados", "Aceptar", Properties.Resources.close);
-
-                TxtUsuario.Clear();
-                TxtContraseña.Clear();
-                TxtUsuario.Focus();
-            }
-            else if (U.Validar() == "")
-            {
-                FrmMensaje M = new FrmMensaje();
-                M.UnBoton("El usuario o la contraseña son incorrectos", "Aceptar", Properties.Resources.close);
-
-                TxtUsuario.Clear();
-                TxtContraseña.Clear();
-                TxtUsuario.Focus();
-            }
-            else
-            {
-                FrmPrincipal P = new FrmPrincipal();
-                P.LblUsuario.Text = P.LblUsuario.Text + U._Nombre;
-                this.Hide();
-                P.Show();
+                M.UnBoton(ex.Message, "Aceptar", Properties.Resources.close);
             }
         }
         #endregion

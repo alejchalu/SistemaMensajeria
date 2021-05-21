@@ -2,6 +2,8 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Data;
+using DevExpress.XtraTreeList.Nodes;
 
 namespace Interfaz
 {
@@ -13,9 +15,10 @@ namespace Interfaz
         }
         #region Variables
         private FrmInicioSesion IS = new FrmInicioSesion();
-        private const int cGrip = 16;
-        private const int cCaption = 32;
         private Menus M = new Menus();
+        private Perfil_Permisos PP = new Perfil_Permisos();
+        private const int cGrip = 16;
+        private const int cCaption = 32;     
         #endregion
 
         #region Metodos
@@ -74,6 +77,30 @@ namespace Interfaz
             }
             base.WndProc(ref m);
         }
+        private void CargarPermisos()
+        {
+            PP._ID_Perfil = Globales.ID_Perfil;
+            DataTable Permisos = PP.Listar();
+
+            foreach (TreeListNode nodo in TlOpcionesMenu.Nodes)
+            {
+                nodo.Visible = false;
+                foreach (TreeListNode NodoHijo in nodo.Nodes)
+                {
+                    NodoHijo.Visible = false;
+
+                }               
+            }
+
+            foreach (DataRow Permiso in Permisos.Rows)
+            {
+                TreeListNode nodo = TlOpcionesMenu.FindNodeByKeyID(Convert.ToInt32(Permiso[0]));
+                if (nodo != null)
+                {
+                    nodo.Visible = true;
+                }
+            }
+        }
         private void Cargar()
         {
             try
@@ -82,6 +109,9 @@ namespace Interfaz
                 TlOpcionesMenu.KeyFieldName = "ID";
                 TlOpcionesMenu.DataSource = M.ListarMenu();
                 TlOpcionesMenu.Columns[1].Visible = false;
+
+                CargarPermisos();
+
             }
             catch (Exception ex)
             {
@@ -119,7 +149,7 @@ namespace Interfaz
                 FormularioMostrar.BringToFront();
                 FormularioMostrar.Show();
             }
-        }
+        }   
         #endregion
 
         #region Eventos

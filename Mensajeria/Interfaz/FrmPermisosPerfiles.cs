@@ -1,4 +1,5 @@
 ﻿using Controlador;
+using DevExpress.XtraEditors.Filtering;
 using DevExpress.XtraTreeList.Nodes;
 using System;
 using System.Data;
@@ -33,7 +34,7 @@ namespace Interfaz
                 foreach (DataRow Linea in Lista.Rows)
                 {
                     TreeListNode nodo = TlOpcionesMenu.FindNodeByKeyID(Convert.ToInt32(Linea[0]));
-                    if (nodo.Checked == false)
+                    if (nodo != null && nodo.Checked == false)
                     {
                         nodo.Checked = true;
                     }
@@ -47,7 +48,7 @@ namespace Interfaz
             }
 
         }
-        private void MarcarDesmascar(bool Estado, int ID)
+        private void MarcarDesmascarDB(bool Estado, int ID)
         {
             try
             {
@@ -65,10 +66,9 @@ namespace Interfaz
                     PP.Eliminar();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                FrmMensaje M = new FrmMensaje();
-                M.UnBoton(ex.Message, "Aceptar", Properties.Resources.close);
+                throw;
             }
         }
         private void Cargar()
@@ -85,7 +85,70 @@ namespace Interfaz
 
                 TlOpcionesMenu.ParentFieldName = "ID_Padre";
                 TlOpcionesMenu.KeyFieldName = "ID";
-                TlOpcionesMenu.DataSource = M.ListarMenuPermisos();
+                TlOpcionesMenu.DataSource = M.ListarMenu();
+                TlOpcionesMenu.Columns[1].Visible = false;
+                TlOpcionesMenu.OptionsBehavior.AllowIndeterminateCheckState = false;
+            }
+            catch (Exception ex)
+            {
+                FrmMensaje M = new FrmMensaje();
+                M.UnBoton(ex.Message, "Aceptar", Properties.Resources.close);
+            }
+        }
+
+        private void MarcarDesmarcar(TreeListNode Nodo)
+        {
+            try
+            {
+                if (Nodo.Checked)
+                {
+
+                    //Cuando es un nodo padre
+                    foreach (TreeListNode NodoHijo in Nodo.Nodes)
+                    {
+                        NodoHijo.Checked = true;
+                        MarcarDesmascarDB(true, Convert.ToInt32(NodoHijo.GetValue("ID")));
+                    }
+
+                    MarcarDesmascarDB(true, Convert.ToInt32(Nodo.GetValue("ID")));
+                }
+                else
+                {
+
+                    //Cuando es un nodo padre
+                    foreach (TreeListNode NodoHijo in Nodo.Nodes)
+                    {
+                        NodoHijo.Checked = false;
+                        MarcarDesmascarDB(false, Convert.ToInt32(NodoHijo.GetValue("ID")));
+                    }
+
+                    MarcarDesmascarDB(false, Convert.ToInt32(Nodo.GetValue("ID")));
+                }
+
+                //Cuando es un nodo hijo
+                if (Nodo.ParentNode != null)
+                {
+                    bool HijoMarcado = false;
+                    Nodo = Nodo.ParentNode;
+                    foreach (TreeListNode NodoHijo in Nodo.Nodes)
+                    {
+                        if (NodoHijo.CheckState == CheckState.Checked)
+                        {
+                            HijoMarcado = true;
+                        }
+                    }
+
+                    if (HijoMarcado == false)
+                    {
+                        Nodo.CheckState = CheckState.Unchecked;
+                        MarcarDesmascarDB(false, Convert.ToInt32(Nodo.GetValue("ID")));
+                    }
+                    else if(Nodo.CheckState != CheckState.Checked)
+                    {
+                        Nodo.CheckState = CheckState.Checked;
+                        MarcarDesmascarDB(true, Convert.ToInt32(Nodo.GetValue("ID")));
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -98,48 +161,25 @@ namespace Interfaz
         #region Eventos
         private void FrmPermisosPerfiles_Load(object sender, EventArgs e)
         {
-            TlOpcionesMenu.NodeChanged -= TlOpcionesMenu_NodeChanged;
             Cargar();
-            TlOpcionesMenu.NodeChanged += TlOpcionesMenu_NodeChanged;
         }
 
         private void CbPerfiles_EditValueChanged(object sender, EventArgs e)
         {
-            TlOpcionesMenu.NodeChanged -= TlOpcionesMenu_NodeChanged;
             CargarMarcados();
-            TlOpcionesMenu.NodeChanged += TlOpcionesMenu_NodeChanged;
         }
 
-        private void TlOpcionesMenu_NodeChanged(object sender, DevExpress.XtraTreeList.NodeChangedEventArgs e)
-        {
-
-            if (e.ChangeType == DevExpress.XtraTreeList.NodeChangeTypeEnum.CheckedState)
-            {
-                if (CbPerfiles.EditValue != null)
-                {
-                    if (e.Node.CheckState == CheckState.Checked || e.Node.CheckState == CheckState.Indeterminate)
-                    {
-                        MarcarDesmascar(true, Convert.ToInt32(e.Node.GetValue("ID")));
-                    }
-                    else
-                    {
-                        MarcarDesmascar(false, Convert.ToInt32(e.Node.GetValue("ID")));
-                    }
-                }
-                else
-                {
-                    e.Node.CheckState = CheckState.Unchecked;
-                }
-            }
-
-        }
-
-        private void TlOpcionesMenu_BeforeCheckNode(object sender, DevExpress.XtraTreeList.CheckNodeEventArgs e)
+        private void TlOpcionesMenu_AfterCheckNode(object sender, DevExpress.XtraTreeList.NodeEventArgs e)
         {
             if (CbPerfiles.EditValue == null)
             {
                 FrmMensaje M = new FrmMensaje();
                 M.UnBoton("Debe seleccionar un perfil", "Aceptar", Properties.Resources.close);
+                e.Node.CheckState = CheckState.Unchecked;
+            }
+            else
+            {
+                MarcarDesmarcar(e.Node);
             }
         }
         #endregion

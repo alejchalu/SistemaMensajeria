@@ -9,4 +9,3 @@ C:\Users\alejandro\Source\Repos\SistemaMensajeria\Mensajeria\BaseDatos\bin\Debug
 C:\Users\alejandro\Source\Repos\SistemaMensajeria\Mensajeria\BaseDatos\obj\Debug\BaseDatos.csproj.CoreCompileInputs.cache
 C:\Users\alejandro\Source\Repos\SistemaMensajeria\Mensajeria\BaseDatos\obj\Debug\BaseDatos.dll
 C:\Users\alejandro\Source\Repos\SistemaMensajeria\Mensajeria\BaseDatos\obj\Debug\BaseDatos.pdb
-C:\Users\alejandro\Source\Repos\SistemaMensajeria\Mensajeria\BaseDatos\obj\Debug\BaseDatos.csprojAssemblyReference.cache

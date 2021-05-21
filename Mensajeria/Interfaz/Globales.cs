@@ -10,6 +10,7 @@ namespace Interfaz
     {
         #region Variables
         public static string Usuario = "";
+        public static int ID_Perfil = 0;
         #endregion
     }
 }

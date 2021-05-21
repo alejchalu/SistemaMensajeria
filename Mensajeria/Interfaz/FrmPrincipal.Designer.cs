@@ -35,8 +35,8 @@
             this.XtPFormularios = new DevExpress.XtraTab.XtraTabControl();
             this.PbImagenPrincipal = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.TlOpcionesMenu = new DevExpress.XtraTreeList.TreeList();
             this.LblUsuario = new System.Windows.Forms.Label();
+            this.TlOpcionesMenu = new DevExpress.XtraTreeList.TreeList();
             this.PnFormularios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BtnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnMaximizar)).BeginInit();
@@ -48,6 +48,7 @@
             // 
             // BtnCerrarSesion
             // 
+            this.BtnCerrarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.BtnCerrarSesion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnCerrarSesion.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BtnCerrarSesion.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -56,7 +57,7 @@
             this.BtnCerrarSesion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(176)))), ((int)(((byte)(153)))));
             this.BtnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCerrarSesion.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold);
-            this.BtnCerrarSesion.ForeColor = System.Drawing.Color.Gainsboro;
+            this.BtnCerrarSesion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(176)))), ((int)(((byte)(153)))));
             this.BtnCerrarSesion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnCerrarSesion.Location = new System.Drawing.Point(0, 526);
             this.BtnCerrarSesion.Name = "BtnCerrarSesion";
@@ -64,7 +65,7 @@
             this.BtnCerrarSesion.Size = new System.Drawing.Size(251, 45);
             this.BtnCerrarSesion.TabIndex = 6;
             this.BtnCerrarSesion.Text = "Cerrar Sesión";
-            this.BtnCerrarSesion.UseVisualStyleBackColor = true;
+            this.BtnCerrarSesion.UseVisualStyleBackColor = false;
             this.BtnCerrarSesion.Click += new System.EventHandler(this.BtnCerrarSesión_Click);
             // 
             // PnFormularios
@@ -134,25 +135,30 @@
             this.panel1.Size = new System.Drawing.Size(251, 571);
             this.panel1.TabIndex = 4;
             // 
+            // LblUsuario
+            // 
+            this.LblUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.LblUsuario.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LblUsuario.Font = new System.Drawing.Font("Arial", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(176)))), ((int)(((byte)(153)))));
+            this.LblUsuario.Location = new System.Drawing.Point(0, 0);
+            this.LblUsuario.Name = "LblUsuario";
+            this.LblUsuario.Size = new System.Drawing.Size(251, 60);
+            this.LblUsuario.TabIndex = 4;
+            this.LblUsuario.Text = "Bienvenido\r\n";
+            // 
             // TlOpcionesMenu
             // 
             this.TlOpcionesMenu.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.TlOpcionesMenu.Location = new System.Drawing.Point(0, 63);
             this.TlOpcionesMenu.Name = "TlOpcionesMenu";
             this.TlOpcionesMenu.OptionsBehavior.Editable = false;
+            this.TlOpcionesMenu.OptionsCustomization.AllowFilter = false;
+            this.TlOpcionesMenu.OptionsCustomization.AllowSort = false;
+            this.TlOpcionesMenu.OptionsFilter.AllowFilterEditor = false;
             this.TlOpcionesMenu.Size = new System.Drawing.Size(251, 463);
             this.TlOpcionesMenu.TabIndex = 7;
             this.TlOpcionesMenu.RowClick += new DevExpress.XtraTreeList.RowClickEventHandler(this.TlOpcionesMenu_RowClick);
-            // 
-            // LblUsuario
-            // 
-            this.LblUsuario.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LblUsuario.Font = new System.Drawing.Font("Arial", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblUsuario.Location = new System.Drawing.Point(0, 0);
-            this.LblUsuario.Name = "LblUsuario";
-            this.LblUsuario.Size = new System.Drawing.Size(251, 60);
-            this.LblUsuario.TabIndex = 4;
-            this.LblUsuario.Text = "Bienvenido\r\n";
             // 
             // FrmPrincipal
             // 

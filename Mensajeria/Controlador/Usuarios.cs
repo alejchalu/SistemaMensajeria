@@ -58,7 +58,19 @@ namespace Controlador
 
         public string Validar()
         {
-            return _Nombre = C.ValidaUsuarios(_Usuario, _Contraseña);            
+            string Cadena = C.ValidaUsuarios(_Usuario, _Contraseña);
+            if (Cadena != "")
+            {
+                string[] parametros = Cadena.Split(',');
+                _Nombre = parametros[0];
+                _ID_Perfil = Convert.ToInt32(parametros[1]);
+            }
+            else
+            {
+                Cadena = "";
+            }
+            
+            return Cadena;         
         }
         #endregion
     }

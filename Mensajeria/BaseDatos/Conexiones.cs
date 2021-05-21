@@ -356,7 +356,7 @@ namespace BaseDatos
         {
             try
             {
-                string[] Lista = new string[1];
+                string[] Lista = new string[2];
                 SqlDataReader LeerFilas;
                 SqlCommand cmd = new SqlCommand("Usu_P_ValidaUsuarios", Conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -371,9 +371,10 @@ namespace BaseDatos
                 if (LeerFilas.Read())
                 {
                     Lista[0] = (LeerFilas.GetString(0));
+                    Lista[1] = (Convert.ToString(LeerFilas.GetInt32(1)));
                     Conexion.Close();
                     LeerFilas.Close();
-                    return Lista.GetValue(0).ToString();
+                    return Lista.GetValue(0).ToString() + "," + Lista.GetValue(1).ToString();
                 }
                 else
                 {
@@ -1015,31 +1016,6 @@ namespace BaseDatos
             try
             {
                 SqlCommand cmd = new SqlCommand("Men_P_ListarMenu", Conexion);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                Conexion.Open();
-
-                SqlDataAdapter adapter = new SqlDataAdapter();
-                adapter.SelectCommand = cmd;
-
-                DataTable table = new DataTable();
-                table.Locale = System.Globalization.CultureInfo.InvariantCulture;
-                adapter.Fill(table);
-
-                Conexion.Close();
-                return table;
-            }
-            catch (Exception)
-            {
-                Conexion.Close();
-                throw;
-            }
-        }
-        public DataTable ListarMenuPermisos()
-        {
-            try
-            {
-                SqlCommand cmd = new SqlCommand("Men_P_ListarMenuPermisos", Conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 Conexion.Open();

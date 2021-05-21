@@ -27,11 +27,6 @@ namespace Controlador
         #endregion
 
         #region Metodos
-        public DataTable ListarMenuPermisos()
-        {
-            return C.ListarMenuPermisos();
-        }
-
         public DataTable ListarMenu()
         {
             return C.ListarMenu();
