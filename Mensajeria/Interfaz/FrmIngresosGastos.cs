@@ -126,7 +126,6 @@ namespace Interfaz
             TxtDescripcion.Clear();
             TxtID.Clear();
         }
-
         private void Asignar()
         {
             if (!string.IsNullOrEmpty(TxtID.Text))

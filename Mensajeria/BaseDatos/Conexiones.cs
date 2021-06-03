@@ -2,7 +2,6 @@
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
-using System.Collections;
 
 namespace BaseDatos
 {
@@ -1016,6 +1015,89 @@ namespace BaseDatos
             try
             {
                 SqlCommand cmd = new SqlCommand("Men_P_ListarMenu", Conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                Conexion.Open();
+
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = cmd;
+
+                DataTable table = new DataTable();
+                table.Locale = System.Globalization.CultureInfo.InvariantCulture;
+                adapter.Fill(table);
+
+                Conexion.Close();
+                return table;
+            }
+            catch (Exception)
+            {
+                Conexion.Close();
+                throw;
+            }
+        }
+        #endregion
+
+        #region Metodos Documentos_Mensajeros
+        public DataTable ListarComboDocumentos()
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("Doc_P_ListarComboDocumentos", Conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                Conexion.Open();
+
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = cmd;
+
+                DataTable table = new DataTable();
+                table.Locale = System.Globalization.CultureInfo.InvariantCulture;
+                adapter.Fill(table);
+
+                Conexion.Close();
+                return table;
+            }
+            catch (Exception)
+            {
+                Conexion.Close();
+                throw;
+            }
+        }
+
+        public void InsertarDocumentos_Mensajeros(int ID_Mensajero, int ID_Documento, string Metodo, 
+           string Comentarios, DateTime Fecha_Registro, string Usuario_Registro)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("Doc_P_InsertarDocumentos_Mensajeros", Conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                Conexion.Open();
+
+                cmd.Parameters.AddWithValue("@ID_Mensajero", ID_Mensajero);
+                cmd.Parameters.AddWithValue("@ID_Documento", ID_Documento);
+                cmd.Parameters.AddWithValue("@Metodo", Metodo);
+                cmd.Parameters.AddWithValue("@Comentarios", Comentarios);
+                cmd.Parameters.AddWithValue("@Fecha_Registro", Fecha_Registro);
+                cmd.Parameters.AddWithValue("@Usuario_Registro", Usuario_Registro);
+
+                cmd.ExecuteNonQuery();
+                Conexion.Close();
+            }
+            catch (Exception)
+            {
+                Conexion.Close();
+                throw;
+            }
+        }
+        #endregion
+
+        #region Metodos Configuracion_Correos
+        public DataTable ListarConfiguracion_Correos()
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("Cor_P_ListarConfiguracion_Correos", Conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 Conexion.Open();

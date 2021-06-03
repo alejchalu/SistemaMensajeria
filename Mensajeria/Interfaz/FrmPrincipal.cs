@@ -170,19 +170,17 @@ namespace Interfaz
         {
             CerrarFormularios();
         }
-
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
             Cargar();
         }
-
         private void TlOpcionesMenu_RowClick(object sender, DevExpress.XtraTreeList.RowClickEventArgs e)
         {
             if (Convert.ToInt32(e.Node.GetValue("ID_Padre")) != 0 && Convert.ToString(e.Node.GetValue("Formulario")) != "")
             {
-                Type CAType = Type.GetType("Interfaz." + Convert.ToString(e.Node.GetValue("Formulario")));
-                Form nextForm2 = (Form)Activator.CreateInstance(CAType);
-                AbrirFormularios(nextForm2, Convert.ToString(e.Node.GetValue("Opciones de menu")));
+                Type Tipo = Type.GetType("Interfaz." + Convert.ToString(e.Node.GetValue("Formulario")));
+                Form Formulario = (Form)Activator.CreateInstance(Tipo);
+                AbrirFormularios(Formulario, Convert.ToString(e.Node.GetValue("Opciones de menu")));
             }
         }
         #endregion

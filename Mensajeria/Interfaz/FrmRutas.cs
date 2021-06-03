@@ -124,6 +124,7 @@ namespace Interfaz
                 CbMensajero.Properties.DropDownRows = Tabla.Rows.Count;
                 CbMensajero.Properties.PopulateColumns();
                 CbMensajero.Properties.Columns[CbMensajero.Properties.ValueMember].Visible = false;
+                CbMensajero.Properties.Columns[2].Visible = false;
             }
             catch (Exception ex)
             {
@@ -135,10 +136,9 @@ namespace Interfaz
         {
             TxtNombre.Clear();
             CeActivo.Checked = false;
-            CbMensajero.SelectionLength = 0;
+            CbMensajero.EditValue = null;
             TxtID.Clear();
         }
-
         private void Asignar()
         {
             if (!string.IsNullOrEmpty(TxtID.Text))

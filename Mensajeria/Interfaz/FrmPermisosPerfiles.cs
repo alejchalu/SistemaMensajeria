@@ -95,7 +95,6 @@ namespace Interfaz
                 M.UnBoton(ex.Message, "Aceptar", Properties.Resources.close);
             }
         }
-
         private void MarcarDesmarcar(TreeListNode Nodo)
         {
             try
